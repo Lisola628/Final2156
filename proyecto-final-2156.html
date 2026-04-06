@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyecto Final · SPAN 2156 · Spring 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #FDD023;
+    --purple: #461D7C;
+    --purple-light: #5530A0;
+    --purple-dark: #2D1250;
+    --cream: #FDF8EE;
+    --ink: #1A1220;
+    --muted: #4A3F58;
+    --border: #BBA8D8;
+    --step-bg: #EDE6FA;
+    --green: #1B5E20;
+    --green-bg: #EDF7EE;
+    --green-border: #B8DFB9;
+    --red: #7A1818;
+    --orange: #E65100;
+    --radius: 10px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--purple-dark);
+    min-height: 340px;
+    display: flex; align-items: flex-end;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 70% at 95% 10%, rgba(253,208,35,.2) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 60% at -5% 90%, rgba(107,63,160,.5) 0%, transparent 55%);
+  }
+  .hero-stripe { position:absolute; top:0; right:0; width:8px; height:100%; background:var(--gold); }
+  .hero-inner { position:relative; z-index:2; padding:56px 48px 44px; max-width:900px; }
+  .course-tag {
+    display:inline-block; font-family:'DM Mono',monospace;
+    font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--gold); background:rgba(253,208,35,.12);
+    border:1px solid rgba(253,208,35,.3); padding:5px 14px; border-radius:2px; margin-bottom:20px;
+  }
+  .hero h1 {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(44px,6.5vw,76px); line-height:.93; letter-spacing:.02em;
+    color:white; margin-bottom:14px;
+  }
+  .hero h1 span { color:var(--gold); display:block; }
+  .hero-sub { font-size:15px; color:white; font-weight:300; max-width:540px; line-height:1.6; }
+  .hero-sub em { color:rgba(255,255,255,.82); font-style:italic; }
+  .hero-tags { display:flex; gap:10px; margin-top:22px; flex-wrap:wrap; }
+  .hero-tag {
+    font-size:12px; color:white; font-weight:500;
+    background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25);
+    padding:5px 13px; border-radius:20px;
+  }
+  .hero-tag strong { color:var(--gold); font-weight:700; }
+
+  /* ── LAYOUT ── */
+  .page-wrap { max-width:860px; margin:0 auto; padding:0 24px 80px; }
+  .section { margin-bottom:60px; }
+  .section-label {
+    font-family:'DM Mono',monospace; font-size:10px;
+    letter-spacing:.22em; text-transform:uppercase;
+    color:var(--purple-light); margin-bottom:6px;
+  }
+  h2.section-title {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:30px; letter-spacing:.04em;
+    color:var(--purple-dark); margin-bottom:8px; line-height:1;
+  }
+  .section-sub { font-size:14px; color:#2A2A2A; margin-bottom:22px; line-height:1.6; }
+  .section-sub em { color:#2A2A2A; }
+
+  /* ── CALLOUTS ── */
+  .callout-purple {
+    background:var(--purple); color:white;
+    border-radius:var(--radius); padding:26px 32px; margin-bottom:52px; margin-top:28px;
+    position:relative; overflow:hidden;
+  }
+  .callout-purple::after {
+    content:'📋'; position:absolute; right:28px; top:50%;
+    transform:translateY(-50%); font-size:52px; opacity:.12;
+  }
+  .callout-gold {
+    background:var(--gold); color:var(--purple-dark);
+    border-radius:var(--radius); padding:16px 22px; margin-top:18px;
+    font-size:14px; font-weight:600; line-height:1.55;
+  }
+  .callout-gold em { font-weight:400; font-style:italic; color:var(--purple); }
+  .callout-warn {
+    background:#FFF8E1; border:1px solid #FFD54F; border-left:4px solid var(--orange);
+    border-radius:var(--radius); padding:14px 20px; font-size:13px;
+    color:#4A3000; line-height:1.6; margin-top:16px;
+  }
+  .callout-warn strong { color:#3A2000; }
+  .callout-info {
+    background:var(--step-bg); border:1px solid var(--border);
+    border-left:4px solid var(--purple);
+    border-radius:var(--radius); padding:14px 20px; font-size:13px;
+    color:#2A2A2A; line-height:1.6; margin-top:16px;
+  }
+
+  /* ── WHAT IS THIS ── */
+  .what-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:16px; }
+  @media(max-width:560px){ .what-grid{ grid-template-columns:1fr; } }
+  .what-card {
+    background:white; border:1px solid var(--border);
+    border-radius:var(--radius); padding:18px 20px;
+    position:relative; overflow:hidden;
+  }
+  .what-card::before {
+    content:''; position:absolute; top:0; left:0; right:0;
+    height:3px;
+  }
+  .what-card.before::before { background:#BBA8D8; }
+  .what-card.now::before { background:var(--gold); }
+  .what-card .wc-label {
+    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.18em;
+    text-transform:uppercase; margin-bottom:10px; display:block; font-weight:600;
+  }
+  .what-card.before .wc-label { color:#BBA8D8; }
+  .what-card.now .wc-label { color:var(--purple-light); }
+  .what-card ul { padding-left:16px; display:flex; flex-direction:column; gap:5px; }
+  .what-card li { font-size:13px; color:#2A2A2A; line-height:1.5; }
+  .what-card.now li { color:var(--ink); font-weight:500; }
+
+  /* ── DELIVERABLES ── */
+  .deliverable-list { display:flex; flex-direction:column; gap:8px; }
+  .deliverable {
+    background:white; border:1px solid var(--border);
+    border-radius:var(--radius); overflow:hidden;
+    display:flex; align-items:stretch;
+  }
+  .del-accent {
+    width:6px; flex-shrink:0;
+  }
+  .del-body { padding:16px 20px; flex:1; }
+  .del-header { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .del-title { font-size:15px; font-weight:700; color:var(--purple-dark); line-height:1.3; }
+  .del-title em { font-size:13px; font-weight:400; font-style:italic; color:#2A2A2A; display:block; margin-top:2px; }
+  .del-badge {
+    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.1em;
+    text-transform:uppercase; padding:3px 10px; border-radius:20px;
+    font-weight:600; white-space:nowrap; flex-shrink:0;
+  }
+  .del-desc { font-size:13px; color:#2A2A2A; margin-top:8px; line-height:1.55; }
+  .del-desc em { font-style:italic; color:#2A2A2A; }
+  .del-items { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+  .del-item {
+    font-size:12px; background:var(--step-bg); border:1px solid var(--border);
+    color:var(--purple-dark); padding:3px 10px; border-radius:20px; font-weight:500;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { display:flex; flex-direction:column; gap:6px; }
+  .tl-row { display:flex; gap:0; align-items:stretch; }
+  .tl-date {
+    background:var(--purple); color:white;
+    font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:.04em;
+    min-width:96px; text-align:center;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:14px 10px; border-radius:var(--radius) 0 0 var(--radius); flex-shrink:0;
+    line-height:1.2;
+  }
+  .tl-date small {
+    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.1em;
+    opacity:.82; text-transform:uppercase; display:block; margin-top:3px;
+  }
+  .tl-body {
+    background:white; border:1px solid var(--border); border-left:none;
+    border-radius:0 var(--radius) var(--radius) 0;
+    padding:14px 20px; flex:1;
+  }
+  .tl-body h3 { font-size:14px; font-weight:700; color:var(--purple-dark); margin-bottom:3px; }
+  .tl-body p { font-size:13px; color:#2A2A2A; line-height:1.5; }
+  .tl-body p em { font-style:italic; }
+  .tl-tag {
+    display:inline-block; margin-top:6px;
+    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.12em;
+    text-transform:uppercase; padding:2px 8px; border-radius:4px; font-weight:600;
+  }
+  .tl-row.key .tl-date { background:var(--gold); color:var(--purple-dark); }
+  .tl-row.final .tl-date { background:var(--purple-dark); }
+  .tl-spacer { height:4px; }
+
+  /* ── GOOGLE SITES STEPS ── */
+  .steps-grid { display:flex; flex-direction:column; gap:6px; }
+  .step-row { display:flex; gap:0; align-items:stretch; }
+  .step-num {
+    background:var(--gold); color:var(--purple-dark);
+    font-family:'Bebas Neue',sans-serif; font-size:24px;
+    min-width:52px; text-align:center;
+    display:flex; align-items:flex-start; justify-content:center;
+    padding-top:13px; border-radius:var(--radius) 0 0 var(--radius); flex-shrink:0;
+  }
+  .step-body {
+    background:white; border:1px solid var(--border); border-left:none;
+    border-radius:0 var(--radius) var(--radius) 0; padding:14px 20px; flex:1;
+  }
+  .step-body h3 { font-size:14px; font-weight:700; color:var(--purple-dark); margin-bottom:2px; }
+  .step-body .step-es { font-size:14px; color:#2A2A2A; font-style:italic; margin-bottom:6px; }
+  .step-body p { font-size:13px; color:#2A2A2A; line-height:1.55; }
+  .step-note {
+    display:inline-block; margin-top:8px; background:var(--step-bg);
+    border:1px solid var(--border); border-radius:4px;
+    padding:4px 10px; font-size:12px; color:var(--purple-dark); line-height:1.4;
+  }
+
+  /* ── PAGE STRUCTURE ── */
+  .page-sections { display:flex; flex-direction:column; gap:8px; }
+  .ps-card {
+    background:white; border:1px solid var(--border);
+    border-radius:var(--radius); overflow:hidden;
+  }
+  .ps-head {
+    background:var(--purple-dark); color:white;
+    padding:12px 18px; display:flex; align-items:center; gap:12px;
+  }
+  .ps-num {
+    background:var(--gold); color:var(--purple-dark);
+    font-family:'Bebas Neue',sans-serif; font-size:16px;
+    width:28px; height:28px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .ps-head-text h3 { font-size:14px; font-weight:700; color:white; }
+  .ps-head-text span { font-size:13px; color:rgba(255,255,255,.88); font-style:italic; }
+  .ps-body { padding:14px 18px; }
+  .ps-body p { font-size:13px; color:#2A2A2A; line-height:1.55; }
+  .ps-body em { font-style:italic; }
+  .ps-required {
+    display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;
+  }
+  .ps-req-item {
+    font-size:12px; background:var(--step-bg); border:1px solid var(--border);
+    color:var(--purple-dark); padding:3px 10px; border-radius:20px; font-weight:500;
+  }
+
+  /* ── WRITTEN WORK ── */
+  .rubric-table {
+    width:100%; border-collapse:collapse;
+    border-radius:var(--radius); overflow:hidden;
+    border:1px solid var(--border);
+  }
+  .rubric-table thead tr { background:var(--purple); color:white; }
+  .rubric-table thead th {
+    padding:12px 16px; text-align:left;
+    font-size:12px; font-weight:600; letter-spacing:.05em;
+  }
+  .rubric-table tbody tr { border-bottom:1px solid var(--border); }
+  .rubric-table tbody tr:last-child { border-bottom:none; }
+  .rubric-table tbody tr:nth-child(even) { background:var(--step-bg); }
+  .rubric-table tbody td { padding:12px 16px; font-size:13px; color:#2A2A2A; vertical-align:top; }
+  .rubric-table .pts {
+    font-family:'Bebas Neue',sans-serif; font-size:20px;
+    color:var(--purple); white-space:nowrap;
+  }
+
+  /* ── CHECKLIST ── */
+  .checklist { background:white; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+  .checklist-header {
+    background:var(--purple); color:white; padding:14px 22px;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .checklist-header h3 { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:.05em; }
+  .checklist-header small { font-size:11px; color:rgba(255,255,255,.88); font-family:'DM Mono',monospace; }
+  .cl-item {
+    display:flex; align-items:flex-start; gap:14px;
+    padding:13px 22px; border-bottom:1px solid var(--border);
+    cursor:pointer; transition:background .15s; user-select:none;
+  }
+  .cl-item:last-child { border-bottom:none; }
+  .cl-item:hover { background:var(--step-bg); }
+  .cl-box {
+    width:22px; height:22px; border:2px solid var(--border);
+    border-radius:5px; flex-shrink:0; margin-top:1px;
+    display:flex; align-items:center; justify-content:center; transition:all .15s;
+  }
+  .cl-item.checked .cl-box { background:var(--purple); border-color:var(--purple); }
+  .cl-item.checked .cl-box::after { content:'✓'; color:white; font-size:13px; font-weight:700; }
+  .cl-item.checked .cl-en { text-decoration:line-through; opacity:.5; }
+  .cl-en { font-size:14px; color:var(--ink); font-weight:500; line-height:1.4; }
+  .cl-es { font-size:14px; color:#2A2A2A; font-style:italic; margin-top:2px; }
+  .cl-progress {
+    background:var(--step-bg); border-top:1px solid var(--border);
+    padding:12px 22px; display:flex; align-items:center; gap:12px;
+  }
+  .cl-bar-wrap { flex:1; height:6px; background:var(--border); border-radius:3px; overflow:hidden; }
+  .cl-bar { height:100%; background:var(--purple); border-radius:3px; transition:width .3s; width:0%; }
+  .cl-pct { font-size:12px; color:#2A2A2A; font-family:'DM Mono',monospace; white-space:nowrap; }
+
+  /* ── FOOTER ── */
+  footer {
+    background:var(--purple-dark); color:rgba(255,255,255,.88);
+    padding:26px 48px; font-size:12px;
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:10px;
+  }
+  footer span { color:var(--gold); font-weight:600; }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:640px){
+    .hero-inner { padding:36px 20px 32px; }
+    .page-wrap { padding:0 16px 60px; }
+    footer { padding:22px; flex-direction:column; text-align:center; }
+    .tl-date { min-width:78px; font-size:13px; }
+  }
+
+  /* ── ANIMATE ── */
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(14px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .hero-inner > * { animation:fadeUp .55s both; }
+  .hero-inner > *:nth-child(1){ animation-delay:.05s; }
+  .hero-inner > *:nth-child(2){ animation-delay:.15s; }
+  .hero-inner > *:nth-child(3){ animation-delay:.25s; }
+  .hero-inner > *:nth-child(4){ animation-delay:.35s; }
+
+  /* ── WEB DESIGN TIPS ── */
+  .tips-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media(max-width:580px){ .tips-grid{ grid-template-columns:1fr; } }
+  .tip-card {
+    background:white; border:1px solid var(--border);
+    border-radius:var(--radius); padding:18px 20px;
+    position:relative; overflow:hidden;
+  }
+  .tip-card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:3px;
+    background:var(--gold);
+  }
+  .tip-card .tip-icon { font-size:24px; margin-bottom:8px; display:block; }
+  .tip-card h3 {
+    font-size:13px; font-weight:700; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--purple); margin-bottom:4px;
+  }
+  .tip-card .tip-es {
+    font-size:13px; color:#2A2A2A; font-style:italic; margin-bottom:8px;
+  }
+  .tip-card ul { padding-left:16px; display:flex; flex-direction:column; gap:5px; }
+  .tip-card li { font-size:13px; color:#2A2A2A; line-height:1.5; }
+  .tip-card li em { font-style:italic; color:#2A2A2A; }
+  .do-dont-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px; }
+  .do-box, .dont-box { border-radius:8px; padding:12px 14px; }
+  .do-box { background:#EDF7EE; border:1px solid #B8DFB9; }
+  .dont-box { background:#FEF0F0; border:1px solid #F5C6C6; }
+  .do-box strong { display:block; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#1B5E20; margin-bottom:6px; }
+  .dont-box strong { display:block; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#7A1818; margin-bottom:6px; }
+  .do-box li, .dont-box li { font-size:12px; color:#2A2A2A; line-height:1.5; margin-bottom:4px; list-style:none; padding-left:0; }
+  .do-box li::before { content:'✓ '; color:#1B5E20; font-weight:700; }
+  .dont-box li::before { content:'✗ '; color:#C62828; font-weight:700; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-stripe"></div>
+  <div class="hero-inner">
+    <div class="course-tag">SPAN 2156 · Spring 2026 · Proyecto Final</div>
+    <h1>Portafolio<span>Electrónico Individual</span></h1>
+    <p class="hero-sub">
+      Your individual digital portfolio — research, podcast, and campaign poster on one Google Site.<br>
+      <em>Tu portafolio digital individual — investigación, podcast y póster de campaña en un Google Site.</em>
+    </p>
+    <div class="hero-tags">
+      <div class="hero-tag">Platform: <strong>Google Sites</strong></div>
+      <div class="hero-tag">Individual work · <strong>Trabajo individual</strong></div>
+      <div class="hero-tag">Presentations: <strong>Apr 20–24</strong></div>
+      <div class="hero-tag">Final paper: <strong>May 8</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <!-- WHAT IS THIS -->
+  <section class="section">
+    <div class="callout-purple" style="margin-top:28px;">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">What is this project · ¿Qué es este proyecto?</div>
+      <h2 style="font-size:18px;font-weight:700;color:white;margin-bottom:14px;">Your final portfolio brings together everything you have done this semester into one professional website.</h2>
+      <p style="font-size:14px;color:rgba(255,255,255,.88);line-height:1.6;margin-bottom:8px;">You will build an individual Google Site that showcases your research, your podcast, and your campaign poster — all connected to your community of Spanish.</p>
+      <p style="font-size:14px;color:rgba(255,255,255,.88);font-style:italic;line-height:1.6;">Crearás un Google Site individual que muestra tu investigación, tu podcast y tu póster de campaña — todo conectado a tu comunidad de español.</p>
+    </div>
+
+    <div class="what-grid">
+      <div class="what-card before">
+        <span class="wc-label">Before · Antes</span>
+        <ul>
+          <li>Group project (webzine)</li>
+          <li>Canva / Gamma / WordPress</li>
+          <li>Shared among teammates</li>
+          <li>Visual presentation only</li>
+        </ul>
+      </div>
+      <div class="what-card now">
+        <span class="wc-label">Now · Ahora</span>
+        <ul>
+          <li>Individual portfolio</li>
+          <li>Google Sites</li>
+          <li>Your work, your voice</li>
+          <li>Research + podcast + poster</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout-warn">
+      <strong>Important · Importante:</strong> Your research topic must be related to your future interest in Spanish — it can share some themes with your podcast, but it should take a different angle or go deeper. · <em>Tu tema debe estar relacionado con tu interés futuro en el español — puede compartir algunos temas con el podcast, pero debe tener un enfoque diferente o mayor profundidad.</em>
+    </div>
+  </section>
+
+  <!-- DELIVERABLES -->
+  <section class="section">
+    <div class="section-label">What you will submit · Lo que entregas</div>
+    <h2 class="section-title">Project Deliverables</h2>
+    <p class="section-sub">Two main deliverables — one website, one written paper. <em>Dos entregas principales — un sitio web y un trabajo escrito.</em></p>
+
+    <div class="deliverable-list">
+
+      <div class="deliverable">
+        <div class="del-accent" style="background:var(--purple);"></div>
+        <div class="del-body">
+          <div class="del-header">
+            <div class="del-title">
+              Google Site — Individual Portfolio
+              <em>Sitio Google — Portafolio Individual</em>
+            </div>
+            <span class="del-badge" style="background:var(--step-bg);color:var(--purple-dark);border:1px solid var(--border);">Due Apr 20</span>
+          </div>
+          <p class="del-desc">A professional website that presents your research in English, embeds your podcast, displays your campaign poster, and includes additional resources.<br><em>Un sitio web profesional que presenta tu investigación en inglés, incluye tu podcast, muestra tu póster de campaña y tiene recursos adicionales.</em></p>
+          <div class="del-items">
+            <span class="del-item">Research in English</span>
+            <span class="del-item">Podcast embedded</span>
+            <span class="del-item">Campaign poster</span>
+            <span class="del-item">Resources</span>
+            <span class="del-item">About me section</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="deliverable">
+        <div class="del-accent" style="background:var(--gold);"></div>
+        <div class="del-body">
+          <div class="del-header">
+            <div class="del-title">
+              Trabajo Escrito Individual — en español
+              <em>Individual Written Paper — in Spanish</em>
+            </div>
+            <span class="del-badge" style="background:#FFF8E1;color:#4A3000;border:1px solid #FFD54F;">Due May 8</span>
+          </div>
+          <p class="del-desc">A 3–5 page research paper in Spanish that expands on what you presented on your website. This is the written version of your research — deeper analysis, specific data, academic sources.<br><em>Un trabajo de 3–5 páginas en español que expande lo que presentaste en tu sitio web.</em></p>
+          <div class="del-items">
+            <span class="del-item">3–5 páginas</span>
+            <span class="del-item">En español</span>
+            <span class="del-item">5+ fuentes (3 académicas)</span>
+            <span class="del-item">APA / MLA / Chicago</span>
+            <span class="del-item">Entrega en Moodle</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section">
+    <div class="section-label">Key dates · Fechas importantes</div>
+    <h2 class="section-title">Schedule</h2>
+    <p class="section-sub">Plan your work around these dates. <em>Organiza tu trabajo con estas fechas en mente.</em></p>
+
+    <div class="timeline">
+      <div class="tl-row">
+        <div class="tl-date">Apr 6<small>Class</small></div>
+        <div class="tl-body">
+          <h3>Project introduction — Intro al proyecto</h3>
+          <p>Overview of the final portfolio: what it is, what it includes, and how to get started. Review these instructions as a class.<br><em>Presentación del portafolio final: qué es, qué incluye y cómo empezar. Revisamos estas instrucciones en clase.</em></p>
+        </div>
+      </div>
+      <div class="tl-spacer"></div>
+      <div class="tl-row">
+        <div class="tl-date">Apr 8<small>CxC</small></div>
+        <div class="tl-body">
+          <h3>Web Development Workshop I — CxC Studio</h3>
+          <p>Google Sites structure, navigation, pages, and layout. This session is at the CxC Studio.<br><em>Estructura de Google Sites, navegación, páginas. Esta sesión es en el CxC Studio.</em></p>
+          <span class="tl-tag" style="background:var(--step-bg);color:var(--purple-dark);">V-T Session 3 · CxC</span>
+        </div>
+      </div>
+      <div class="tl-spacer"></div>
+      <div class="tl-row">
+        <div class="tl-date">Apr 10<small>Class</small></div>
+        <div class="tl-body">
+          <h3>Bring your Google Site skeleton to class</h3>
+          <p>You must arrive with a Google Site already created — pages set up, theme chosen, basic structure in place. Work session to add content and begin embedding podcast and poster.<br><em>Debes llegar con un Google Site ya creado — páginas configuradas, tema elegido, estructura básica. Sesión de trabajo para agregar contenido e incrustar podcast y póster.</em></p>
+          <span class="tl-tag" style="background:#FFF8E1;color:#4A3000;border:1px solid #FFD54F;">Bring your site skeleton · Trae el esqueleto de tu sitio</span>
+        </div>
+      </div>
+      <div class="tl-spacer"></div>
+      <div class="tl-row">
+        <div class="tl-date">Apr 15<small>Lab</small></div>
+        <div class="tl-body">
+          <h3>Web Development Workshop II — Lab session</h3>
+          <p>Work in the lab: multimedia, images, accessibility, and refining your site. Bring your site open and ready to continue building.<br><em>Trabajo en el laboratorio: multimedia, imágenes, accesibilidad y refinamiento del sitio. Trae tu sitio abierto y listo para continuar.</em></p>
+          <span class="tl-tag" style="background:var(--step-bg);color:var(--purple-dark);">V-T Session 4 · Lab</span>
+        </div>
+      </div>
+      <div class="tl-spacer"></div>
+      <div class="tl-row">
+        <div class="tl-date">Apr 17<small>Class</small></div>
+        <div class="tl-body">
+          <h3>Finalize website + continue written paper</h3>
+          <p>Final touches on your Google Site. Continue drafting your written paper in Spanish. Site must be complete and ready to present by Apr 20.<br><em>Últimos ajustes al sitio. Continúa redactando el trabajo escrito. El sitio debe estar listo para presentar el 20 de abril.</em></p>
+        </div>
+      </div>
+      <div class="tl-spacer"></div>
+      <div class="tl-row key">
+        <div class="tl-date">Apr 20<small>Presentations</small></div>
+        <div class="tl-body">
+          <h3>Website Presentations begin — Site must be published</h3>
+          <p>Presentations continue Apr 22 and Apr 24. Your Google Site must be live and complete.<br><em>Las presentaciones continúan el 22 y 24 de abril. Tu sitio debe estar publicado y completo.</em></p>
+          <span class="tl-tag" style="background:var(--gold);color:var(--purple-dark);">Site due · Sitio listo</span>
+        </div>
+      </div>
+      <div class="tl-spacer"></div>
+      <div class="tl-row final">
+        <div class="tl-date">May 8<small>Finals</small></div>
+        <div class="tl-body">
+          <h3>Final written paper due — Moodle</h3>
+          <p>Submit your 3–5 page paper in Spanish on Moodle by <strong>May 8</strong>.<br><em>Entrega tu trabajo de 3–5 páginas en español en Moodle antes del <strong>8 de mayo</strong>.</em></p>
+          <span class="tl-tag" style="background:#2D1250;color:var(--gold);border:1px solid var(--gold);">Trabajo Final</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOOGLE SITE STRUCTURE -->
+  <section class="section">
+    <div class="section-label">Your website · Tu sitio web</div>
+    <h2 class="section-title">What Your Google Site Must Include</h2>
+    <p class="section-sub">Each section below is a page or section on your Google Site. <em>Cada punto es una página o sección de tu Google Site.</em></p>
+
+    <div class="page-sections">
+
+      <div class="ps-card">
+        <div class="ps-head">
+          <div class="ps-num">1</div>
+          <div class="ps-head-text">
+            <h3>Home / About Me</h3>
+            <span>Inicio / Sobre mí</span>
+          </div>
+        </div>
+        <div class="ps-body">
+          <p>Introduce yourself and your topic. Why did you choose this community? How does Spanish connect to your future? Write in English.<br><em>Preséntate y presenta tu tema. ¿Por qué elegiste esta comunidad? ¿Cómo conecta el español con tu futuro? Escribe en inglés.</em></p>
+          <div class="ps-required">
+            <span class="ps-req-item">Photo or image</span>
+            <span class="ps-req-item">Brief bio</span>
+            <span class="ps-req-item">Topic introduction</span>
+            <span class="ps-req-item">Connection to Spanish</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ps-card">
+        <div class="ps-head">
+          <div class="ps-num">2</div>
+          <div class="ps-head-text">
+            <h3>Research — My Future Community</h3>
+            <span>Investigación — Mi comunidad futura</span>
+          </div>
+        </div>
+        <div class="ps-body">
+          <p>Present your research in English. Include specific data, images, and at least 3 academic sources. Organize in 2–3 clear sections with headings.<br><em>Presenta tu investigación en inglés. Incluye datos específicos, imágenes y al menos 3 fuentes académicas. Organiza en 2–3 secciones con títulos.</em></p>
+          <div class="ps-required">
+            <span class="ps-req-item">Written in English</span>
+            <span class="ps-req-item">2–3 sections</span>
+            <span class="ps-req-item">Images / visuals</span>
+            <span class="ps-req-item">Specific data</span>
+            <span class="ps-req-item">Sources cited</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ps-card">
+        <div class="ps-head">
+          <div class="ps-num">3</div>
+          <div class="ps-head-text">
+            <h3>Podcast</h3>
+            <span>Podcast</span>
+          </div>
+        </div>
+        <div class="ps-body">
+          <p>Embed your podcast from this semester directly on the site. Add a short description of what it is about and what you learned from making it.<br><em>Incrusta tu podcast del semestre directamente en el sitio. Agrega una descripción breve de qué trata y qué aprendiste al hacerlo.</em></p>
+          <div class="ps-required">
+            <span class="ps-req-item">Embedded audio</span>
+            <span class="ps-req-item">Short description</span>
+            <span class="ps-req-item">Reflection (2–3 sentences)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ps-card">
+        <div class="ps-head">
+          <div class="ps-num">4</div>
+          <div class="ps-head-text">
+            <h3>Campaign Poster</h3>
+            <span>Póster de campaña</span>
+          </div>
+        </div>
+        <div class="ps-body">
+          <p>Display your campaign poster from the poster workshop. Include the slogan, the program or community it promotes, and a brief explanation of your design choices.<br><em>Muestra tu póster de campaña del workshop. Incluye el slogan, el programa o comunidad que promueve y una breve explicación de tus decisiones de diseño.</em></p>
+          <div class="ps-required">
+            <span class="ps-req-item">Poster image</span>
+            <span class="ps-req-item">Slogan</span>
+            <span class="ps-req-item">Design explanation</span>
+            <span class="ps-req-item">Link or QR</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ps-card">
+        <div class="ps-head">
+          <div class="ps-num">5</div>
+          <div class="ps-head-text">
+            <h3>Resources</h3>
+            <span>Recursos</span>
+          </div>
+        </div>
+        <div class="ps-body">
+          <p>List your sources and any additional resources related to your topic — programs, organizations, links — that viewers can explore. This is your bibliography made visual.<br><em>Lista tus fuentes y recursos adicionales relacionados con tu tema. Esta es tu bibliografía de forma visual.</em></p>
+          <div class="ps-required">
+            <span class="ps-req-item">5+ sources</span>
+            <span class="ps-req-item">Formatted citations</span>
+            <span class="ps-req-item">Links to programs / orgs</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout-info" style="margin-top:16px;">
+      Your site must be <strong>published and shareable</strong> before Apr 20. Go to <strong>Publish</strong> in Google Sites and share the link with your professor. · <em>Tu sitio debe estar publicado y compartido antes del 20 de abril. Ve a Publicar en Google Sites y comparte el enlace con tu profesora.</em>
+    </div>
+  </section>
+
+  <!-- HOW TO BUILD IN GOOGLE SITES -->
+  <section class="section">
+    <div class="section-label">Step by step · Paso a paso</div>
+    <h2 class="section-title">Building Your Google Site</h2>
+    <p class="section-sub">Follow these steps during the workshop and continue on your own. <em>Sigue estos pasos durante el workshop y continúa por tu cuenta.</em></p>
+
+    <div class="steps-grid">
+      <div class="step-row">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Go to sites.google.com</h3>
+          <div class="step-es">Ve a sites.google.com</div>
+          <p>Sign in with your LSU Google account. Click <strong>+ Blank site</strong> to start a new site. Give it a name — your name and topic work well.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Set up your pages</h3>
+          <div class="step-es">Crea tus páginas</div>
+          <p>In the right panel, click <strong>Pages</strong> and add the 5 sections: Home, Research, Podcast, Poster, Resources. Each becomes its own page in your navigation.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Choose a theme and header</h3>
+          <div class="step-es">Elige un tema y encabezado</div>
+          <p>Click <strong>Themes</strong> to pick a visual style. Add a header image or title to your home page. Keep it professional and connected to your topic.</p>
+          <span class="step-note">Apply the 4 design principles: Contrast, Repetition, Alignment, Proximity · Aplica los 4 principios de diseño</span>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Add your research content</h3>
+          <div class="step-es">Agrega tu contenido de investigación</div>
+          <p>Use <strong>Insert → Text box</strong> for paragraphs, <strong>Insert → Image</strong> for visuals. Organize with headings. Write in English.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h3>Embed your podcast</h3>
+          <div class="step-es">Incrusta tu podcast</div>
+          <p>Use <strong>Insert → Embed</strong> and paste your podcast URL, or upload your audio file. Add a text description below.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <h3>Add your campaign poster</h3>
+          <div class="step-es">Agrega tu póster de campaña</div>
+          <p>Insert the poster image from your Canva or Google Slides file. Add your slogan as a heading and include 2–3 sentences explaining your design decisions.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">7</div>
+        <div class="step-body">
+          <h3>Add sources and resources</h3>
+          <div class="step-es">Agrega fuentes y recursos</div>
+          <p>List your citations in APA, MLA, or Chicago. Add clickable links to programs and organizations related to your topic.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">8</div>
+        <div class="step-body">
+          <h3>Publish and share</h3>
+          <div class="step-es">Publica y comparte</div>
+          <p>Click <strong>Publish</strong> in the top right corner. Set visibility to <strong>Anyone with the link</strong>. Copy the link and send it to your professor before Apr 20.</p>
+          <span class="step-note">Deadline: April 20 — presentations begin · Fecha límite: 20 de abril</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WRITTEN PAPER -->
+  <section class="section">
+    <div class="section-label">Written paper · Trabajo escrito</div>
+    <h2 class="section-title">Trabajo de Investigación Individual</h2>
+    <p class="section-sub">3–5 pages in Spanish — due <strong>May 8</strong> on Moodle. <em>3–5 páginas en español — entrega en Moodle durante la semana de finales.</em></p>
+
+    <div class="callout-gold">
+      This paper is the written version of your website research — in Spanish, with deeper analysis, specific data, and academic sources. You are not doing new work; you are expanding what you already built on your site.<br>
+      <em>Este trabajo es la versión escrita de tu investigación del sitio web — en español, con análisis más profundo, datos específicos y fuentes académicas. No es trabajo nuevo; es expandir lo que ya construiste.</em>
+    </div>
+
+    <!-- Format table -->
+    <div style="margin-top:20px;overflow-x:auto;">
+      <table class="rubric-table">
+        <thead>
+          <tr>
+            <th>Element · Elemento</th>
+            <th>Requirement · Requisito</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Length · Extensión</td><td>3–5 pages, double-spaced (without bibliography) · 3–5 páginas a doble espacio (sin bibliografía)</td></tr>
+          <tr><td>Font · Fuente</td><td>Times New Roman or Arial, 12pt</td></tr>
+          <tr><td>Margins · Márgenes</td><td>1 inch all sides · 1 pulgada en todos los lados</td></tr>
+          <tr><td>Citation · Citación</td><td>APA, MLA, or Chicago — pick one and use it consistently</td></tr>
+          <tr><td>Sources · Fuentes</td><td>Minimum 5 (at least 3 academic) · Mínimo 5 (al menos 3 académicas)</td></tr>
+          <tr><td>Language · Idioma</td><td>Written in Spanish — your own words, not a translation · En tu propio español, no traducido</td></tr>
+          <tr><td>File name · Nombre</td><td>Apellido_Nombre_TrabajoFinal_SPAN2156.pdf</td></tr>
+          <tr><td>Submission · Entrega</td><td>Moodle → Assignments → "Trabajo Final de Investigación Individual"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Structure -->
+    <div style="margin-top:22px;">
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--purple-dark);letter-spacing:.04em;margin-bottom:14px;">Paper Structure · Estructura del trabajo</h3>
+      <div class="page-sections">
+        <div class="ps-card">
+          <div class="ps-head" style="background:var(--purple);">
+            <div class="ps-num">I</div>
+            <div class="ps-head-text"><h3>Introducción (~¾ página)</h3><span>Introduction</span></div>
+          </div>
+          <div class="ps-body">
+            <p>Connect to your website: <em>"En mi sitio web sobre [tema], presenté..."</em> — State your specific focus — Say what you will expand — Include your thesis or research question.<br><em>Conecta con tu sitio web, establece tu enfoque específico, di qué vas a expandir e incluye tu tesis.</em></p>
+          </div>
+        </div>
+        <div class="ps-card">
+          <div class="ps-head" style="background:var(--purple);">
+            <div class="ps-num">II</div>
+            <div class="ps-head-text"><h3>Desarrollo (2–3 páginas)</h3><span>Body — 2–3 sections</span></div>
+          </div>
+          <div class="ps-body">
+            <p>Divide into 2–3 sections. Use specific evidence — exact numbers, dates, names. Analyze causes, consequences, and connections to social justice. Go beyond description.<br><em>Divide en 2–3 secciones. Usa evidencia específica con números exactos, fechas, nombres. Analiza causas, consecuencias y conexiones con justicia social.</em></p>
+          </div>
+        </div>
+        <div class="ps-card">
+          <div class="ps-head" style="background:var(--purple);">
+            <div class="ps-num">III</div>
+            <div class="ps-head-text"><h3>Conclusión (~¾ página)</h3><span>Conclusion</span></div>
+          </div>
+          <div class="ps-body">
+            <p>Synthesize what you expanded — projections based on your research — implications for social justice — final reflection.<br><em>Sintetiza lo que expandiste, proyecciones basadas en tu investigación, implicaciones para justicia social y reflexión final.</em></p>
+          </div>
+        </div>
+        <div class="ps-card">
+          <div class="ps-head" style="background:var(--purple-dark);">
+            <div class="ps-num" style="background:rgba(255,255,255,.15);color:white;">B</div>
+            <div class="ps-head-text"><h3>Bibliografía (página separada)</h3><span>Separate page · All sources</span></div>
+          </div>
+          <div class="ps-body">
+            <p>All sources in your chosen citation format — APA, MLA, or Chicago. Minimum 5 sources, at least 3 academic.<br><em>Todas las fuentes en el formato que elegiste. Mínimo 5 fuentes, al menos 3 académicas.</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rubric -->
+    <div style="margin-top:22px;">
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--purple-dark);letter-spacing:.04em;margin-bottom:14px;">Rúbrica · 100 puntos</h3>
+      <div style="overflow-x:auto;">
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th>Criteria · Criterio</th>
+              <th style="text-align:right;">Points · Puntos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Connection and expansion of your website research</strong><br><span style="font-style:italic;font-size:12px;">Conexión y expansión de la investigación del sitio web</span><br><span style="font-size:12px;color:#4A3F58;">Clearly connects to your site · Expands with specific data and deep analysis · Does not repeat — develops</span></td>
+              <td class="pts">25</td>
+            </tr>
+            <tr>
+              <td><strong>Evidence and sources</strong><br><span style="font-style:italic;font-size:12px;">Evidencia y fuentes</span><br><span style="font-size:12px;color:#4A3F58;">5+ sources (3+ academic) · Specific data with exact numbers · Consistent citation format · Reliable sources</span></td>
+              <td class="pts">25</td>
+            </tr>
+            <tr>
+              <td><strong>Analysis and critical thinking</strong><br><span style="font-style:italic;font-size:12px;">Análisis y pensamiento crítico</span><br><span style="font-size:12px;color:#4A3F58;">Goes beyond description · Explains causes and consequences · Examines power and systems · Connects to social justice</span></td>
+              <td class="pts">25</td>
+            </tr>
+            <tr>
+              <td><strong>Organization and clarity</strong><br><span style="font-style:italic;font-size:12px;">Organización y claridad</span><br><span style="font-size:12px;color:#4A3F58;">Clear logical structure · Well-developed paragraphs (max 10 lines) · Effective transitions · Complete intro and conclusion</span></td>
+              <td class="pts">15</td>
+            </tr>
+            <tr>
+              <td><strong>Format and writing</strong><br><span style="font-style:italic;font-size:12px;">Formato y escritura</span><br><span style="font-size:12px;color:#4A3F58;">Follows technical specs · Correct spelling and grammar · Your own Spanish (not translated) · Clear, brief sentences</span></td>
+              <td class="pts">10</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- WEB DESIGN TIPS -->
+  <section class="section">
+    <div class="section-label">From the CxC presentation · Del taller de diseño web</div>
+    <h2 class="section-title">Web Design Tips for Your Portfolio</h2>
+    <p class="section-sub">These principles apply to your Google Site — and to any professional portfolio you build in the future. <em>Estos principios aplican a tu Google Site y a cualquier portafolio profesional que construyas en el futuro.</em></p>
+
+    <div class="tips-grid" style="margin-bottom:14px;">
+
+      <div class="tip-card">
+        <span class="tip-icon">🏠</span>
+        <h3>Landing Page · Página de inicio</h3>
+        <div class="tip-es">Primera impresión</div>
+        <ul>
+          <li>Must show a sample of your work immediately — <em>debe mostrar tu trabajo de inmediato</em></li>
+          <li>Include a tagline or statement that describes who you are — <em>incluye una frase que describa quién eres</em></li>
+          <li>Be quick and efficient — visitors should not have to guess — <em>sé eficiente; los visitantes no deben adivinar</em></li>
+          <li>Name + clean navigation visible at all times — <em>nombre + navegación limpia siempre visible</em></li>
+        </ul>
+      </div>
+
+      <div class="tip-card">
+        <span class="tip-icon">🧭</span>
+        <h3>Navigation · Navegación</h3>
+        <div class="tip-es">Cómo se mueve el visitante</div>
+        <ul>
+          <li>Keep navigation on top, consistent across all pages — <em>navegación arriba, consistente en todas las páginas</em></li>
+          <li>Avoid drop-down menus — especially if you have few items — <em>evita menús desplegables con pocos elementos</em></li>
+          <li>Use conventional labels: Home, About — <em>usa etiquetas convencionales: Inicio, Sobre mí</em></li>
+          <li>Decide: do you want visitors to scroll or click? Be consistent — <em>¿scroll o click? Sé consistente</em></li>
+          <li>Always open links in a new tab — <em>siempre abre links en una pestaña nueva</em></li>
+        </ul>
+      </div>
+
+      <div class="tip-card">
+        <span class="tip-icon">📐</span>
+        <h3>Layout & Content · Diseño y contenido</h3>
+        <div class="tip-es">Lo que se ve en pantalla</div>
+        <ul>
+          <li>Less is more — do not overcrowd the screen — <em>menos es más; no sobrecargues la pantalla</em></li>
+          <li>Think of how much content fits per screen if visitors click — <em>piensa en cuánto cabe por pantalla</em></li>
+          <li>Consistency across pages in colors, fonts, spacing — <em>consistencia en colores, fuentes y espaciado</em></li>
+          <li>Images do not speak for themselves — give them titles and brief context — <em>las imágenes necesitan título y contexto breve</em></li>
+          <li>Think about grabbing attention — <em>piensa en captar la atención</em></li>
+        </ul>
+      </div>
+
+      <div class="tip-card">
+        <span class="tip-icon">📱</span>
+        <h3>Mobile Optimization · Versión móvil</h3>
+        <div class="tip-es">La mayoría accede desde el teléfono</div>
+        <ul>
+          <li>Design for mobile first — most people access from their phones — <em>la mayoría usa el teléfono</em></li>
+          <li>Platforms like Google Sites build the mobile version automatically — <em>Google Sites crea la versión móvil automáticamente</em></li>
+          <li>Check by resizing your browser window while designing — <em>verifica reduciendo el navegador mientras diseñas</em></li>
+          <li>Make sure nothing is cut off — <em>asegúrate de que nada quede cortado</em></li>
+          <li>Right-click → Inspect to see how it looks — <em>click derecho → Inspeccionar para ver cómo se ve</em></li>
+        </ul>
+      </div>
+
+      <div class="tip-card">
+        <span class="tip-icon">🖼️</span>
+        <h3>Images & Media · Imágenes y medios</h3>
+        <div class="tip-es">Cómo usar lo visual</div>
+        <ul>
+          <li>Use full resolution — but be aware of storage limits — <em>usa resolución completa, pero cuida el almacenamiento</em></li>
+          <li>Never make images too small to see — <em>nunca hagas imágenes tan pequeñas que no se vean</em></li>
+          <li>Be careful putting text over images — check contrast — <em>cuidado con texto sobre imágenes; verifica el contraste</em></li>
+          <li>Links to PDF or slideshow are better than embedding heavy files — <em>los links a PDF son mejores que incrustar archivos pesados</em></li>
+          <li>Order strategically: best to least strong, not always newest to oldest — <em>ordena estratégicamente, no necesariamente de nuevo a viejo</em></li>
+        </ul>
+      </div>
+
+      <div class="tip-card">
+        <span class="tip-icon">♿</span>
+        <h3>Accessibility · Accesibilidad</h3>
+        <div class="tip-es">Diseño accesible = buen diseño</div>
+        <ul>
+          <li>Accessible design is good design — it is a federal mandate — <em>el diseño accesible es buen diseño — es mandato federal</em></li>
+          <li>Check color contrast on every page — <em>verifica el contraste de color en cada página</em></li>
+          <li>Avoid text that blends into its background — <em>evita texto que se mezcle con el fondo</em></li>
+          <li>Text alignment: left-to-right or justified — avoid centered long text — <em>texto alineado a la izquierda o justificado; evita centrado en párrafos largos</em></li>
+          <li>Most platforms have a built-in accessibility checker — use it — <em>la mayoría de plataformas tienen verificador de accesibilidad — úsalo</em></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- DO / DON'T -->
+    <div class="do-dont-row">
+      <div class="do-box">
+        <strong>Do · Haz esto</strong>
+        <ul>
+          <li>Navigation on top, always visible</li>
+          <li>Open links in a new tab</li>
+          <li>Check contrast on every page</li>
+          <li>One clear statement about who you are</li>
+          <li>Full resolution images with titles</li>
+          <li>Test on mobile while you design</li>
+          <li>Consistent colors and fonts across pages</li>
+        </ul>
+      </div>
+      <div class="dont-box">
+        <strong>Avoid · Evita esto</strong>
+        <ul>
+          <li>Drop-down menus with few items</li>
+          <li>Text over images with low contrast</li>
+          <li>Overcrowded screens</li>
+          <li>Images with no title or context</li>
+          <li>Inconsistent layout per page</li>
+          <li>Tiny images impossible to see</li>
+          <li>Centered long paragraphs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout-info" style="margin-top:14px;">
+      <strong>Free platforms for reference:</strong> Google Sites (recommended for this class) · Wix · Adobe Portfolio (if you have lots of visuals) · Squarespace · ReadyMag<br>
+      <em>Plataformas gratuitas de referencia: Google Sites (recomendado para esta clase) · Wix · Adobe Portfolio · Squarespace · ReadyMag</em>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section class="section">
+    <div class="section-label">Self-check · Autoevaluación</div>
+    <h2 class="section-title">Am I Ready?</h2>
+    <p class="section-sub">Check off everything before your presentation and before submitting. <em>Marca todo antes de tu presentación y antes de entregar.</em></p>
+
+    <div class="checklist">
+      <div class="checklist-header">
+        <h3>Final Checklist · Lista final</h3>
+        <small>Click each item to check it off</small>
+      </div>
+
+      <!-- WEBSITE -->
+      <div style="background:var(--step-bg);border-bottom:1px solid var(--border);padding:8px 22px;">
+        <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--purple-light);font-weight:600;">Google Site</span>
+      </div>
+      <div class="cl-item" onclick="toggleCheck(this)">
+        <div class="cl-box"></div>
+        <div>
+          <div class="cl-en">My site has all 5 sections: Home, Research, Podcast, Poster, Resources</div>
+          <div class="cl-es">Mi sitio tiene las 5 secciones: Inicio, Investigación, Podcast, Póster, Recursos</div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleCheck(this)">
+        <div class="cl-box"></div>
+        <div>
+          <div class="cl-en">Research is written in English with specific data and 2–3 sections</div>
+          <div class="cl-es">La investigación está en inglés con datos específicos y 2–3 secciones</div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleCheck(this)">
+        <div class="cl-box"></div>
+        <div>
+          <div class="cl-en">My podcast is embedded and has a description</div>
+          <div class="cl-es">Mi podcast está incrustado y tiene una descripción</div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleCheck(this)">
+        <div class="cl-box"></div>
+        <div>
+          <div class="cl-en">My campaign poster is displayed with slogan and design explanation</div>
+          <div class="cl-es">Mi póster de campaña está visible con slogan y explicación de diseño</div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleCheck(this)">
+        <div class="cl-box"></div>
+        <div>
+          <div class="cl-en">Resources page has 5+ sources with citations and links</div>
+          <div class="cl-es">La página de recursos tiene 5+ fuentes con citas y links</div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleCheck(this)">
+        <div class="cl-box"></div>
+        <div>
+          <div class="cl-en">Site is published and the link has been shared with the professor</div>
+          <div class="cl-es">El sitio está publicado y el enlace fue enviado a la profesora</div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleCheck(this)">
+        <div class="cl-box"></div>
+        <div>
+          <div class="cl-en">Design is consistent — contrast, repetition, alignment, proximity</div>
+          <div class="cl-es">El diseño es consistente — contraste, repetición, alineación, proximidad</div>
+        </div>
+      </div>
+
+      <!-- WRITTEN PAPER -->
+      <div style="background:var(--step-bg);border-bottom:1px solid var(--border);border-top:1px solid var(--border);padding:8px 22px;">
+        <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--purple-light);font-weight:600;">Trabajo Escrito</span>
+      </div>
+      <div class="cl-item" onclick="toggleCheck(this)">
+        <div class="cl-box"></div>
+        <div>
+          <div class="cl-en">Paper is written in Spanish — my own words, not a translation</div>
+          <div class="cl-es">El trabajo está en español — mis propias palabras, no una traducción</div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleCheck(this)">
+        <div class="cl-box"></div>
+        <div>
+          <div class="cl-en">3–5 pages, double spaced, Times New Roman or Arial 12pt, 1-inch margins</div>
+          <div class="cl-es">3–5 páginas, doble espacio, Times New Roman o Arial 12pt, márgenes de 1 pulgada</div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleCheck(this)">
+        <div class="cl-box"></div>
+        <div>
+          <div class="cl-en">Introduction connects explicitly to my website research</div>
+          <div class="cl-es">La introducción conecta explícitamente con mi investigación del sitio web</div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleCheck(this)">
+        <div class="cl-box"></div>
+        <div>
+          <div class="cl-en">Body has 2–3 sections with specific data, exact numbers, and analysis</div>
+          <div class="cl-es">El desarrollo tiene 2–3 secciones con datos específicos, números exactos y análisis</div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleCheck(this)">
+        <div class="cl-box"></div>
+        <div>
+          <div class="cl-en">5+ sources cited (at least 3 academic) in consistent APA/MLA/Chicago format</div>
+          <div class="cl-es">5+ fuentes citadas (al menos 3 académicas) en formato APA/MLA/Chicago consistente</div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleCheck(this)">
+        <div class="cl-box"></div>
+        <div>
+          <div class="cl-en">File is saved as: Apellido_Nombre_TrabajoFinal_SPAN2156.pdf</div>
+          <div class="cl-es">El archivo se llama: Apellido_Nombre_TrabajoFinal_SPAN2156.pdf</div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleCheck(this)">
+        <div class="cl-box"></div>
+        <div>
+          <div class="cl-en">Submitted on Moodle by May 8</div>
+          <div class="cl-es">Entregado en Moodle antes del 8 de mayo</div>
+        </div>
+      </div>
+
+      <div class="cl-progress">
+        <div class="cl-bar-wrap"><div class="cl-bar" id="progressBar"></div></div>
+        <span class="cl-pct" id="progressLabel">0 / 14</span>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-wrap -->
+
+<footer>
+  <div>SPAN 2156 · <span>Portafolio Electrónico Individual · Spring 2026</span></div>
+  <div>Dra. Naranjo · Department of World Languages, Literatures &amp; Cultures · LSU</div>
+</footer>
+
+<script>
+  function toggleCheck(item) {
+    item.classList.toggle('checked');
+    updateProgress();
+  }
+  function updateProgress() {
+    var all = document.querySelectorAll('.cl-item');
+    var checked = document.querySelectorAll('.cl-item.checked');
+    var pct = Math.round((checked.length / all.length) * 100);
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = checked.length + ' / ' + all.length;
+  }
+</script>
+
+</body>
+</html>
