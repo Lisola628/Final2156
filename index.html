@@ -1,1121 +1,783 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proyecto Final · SPAN 2156 · Spring 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --gold: #FDD023;
-    --purple: #461D7C;
-    --purple-light: #5530A0;
-    --purple-dark: #2D1250;
-    --cream: #FDF8EE;
-    --ink: #1A1220;
-    --muted: #4A3F58;
-    --border: #BBA8D8;
-    --step-bg: #EDE6FA;
-    --green: #1B5E20;
-    --green-bg: #EDF7EE;
-    --green-border: #B8DFB9;
-    --red: #7A1818;
-    --orange: #E65100;
-    --radius: 10px;
-  }
+<!-- ============================================================
+SPAN 2156 · Voces que resisten · Fall 2026
+GUÍA DEL TALLER V-T 3 — Google Sites: estructura y diseño del portafolio
+Mié 18 nov 2026 · Unidad 5 · Semana 13
+Estilos en línea únicamente (compatible con Moodle Snap).
+Código de color: verde = elegir plataforma y decidir el mapa · dorado = crear el sitio · morado = páginas
+terracota = página de inicio · azul = publicar · vino = lo que sigue
+============================================================ -->
+<div style="font-family: Arial, sans-serif; max-width: 900px; line-height: 1.7;">
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--ink);
-    font-size: 16px;
-    line-height: 1.65;
-    overflow-x: hidden;
-  }
+  <!-- HERO -->
+  <div style="background: #1F4B7A; background-image: linear-gradient(150deg, #173A5F 0%, #1F4B7A 55%, #2F6AA3 100%); color: #ffffff; border-radius: 14px; padding: 30px 32px; margin-bottom: 10px;">
+    <span style="display: inline-block; background: #E0A526; color: #1C1917; font-size: 13px; font-weight: bold; letter-spacing: .08em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px;">
+      Taller V-T 3 &nbsp;·&nbsp; Unidad 5 · Semana 13</span>
+    <h2 style="margin: 0 0 6px; font-family: Arial, sans-serif; font-size: 27px; line-height: 1.25; color: #ffffff;">
+      🌐 Tu portafolio en línea<br>elegir la plataforma, la estructura y el diseño</h2>
+    <p style="margin: 0 0 16px; font-family: Georgia, serif; font-size: 17px; color: #EAF2EF;">
+      El podcast y el póster ya existen. Hoy construyes el lugar donde viven juntos — y sales del salón
+      con el esqueleto de tu sitio publicado.</p>
+    <p style="margin: 0; font-size: 15px; color: #EAF2EF;">
+      📅 Miércoles 18 de noviembre &nbsp;&nbsp;·&nbsp;&nbsp; ⏱ 50 minutos &nbsp;&nbsp;·&nbsp;&nbsp; 💻 tu portátil
+      &nbsp;&nbsp;·&nbsp;&nbsp; 👤 sitio individual, con ayuda de tu pareja</p>
+  </div>
 
-  /* ── HERO ── */
-  .hero {
-    background: var(--purple-dark);
-    min-height: 340px;
-    display: flex; align-items: flex-end;
-    position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 70% at 95% 10%, rgba(253,208,35,.2) 0%, transparent 65%),
-      radial-gradient(ellipse 50% 60% at -5% 90%, rgba(107,63,160,.5) 0%, transparent 55%);
-  }
-  .hero-stripe { position:absolute; top:0; right:0; width:8px; height:100%; background:var(--gold); }
-  .hero-inner { position:relative; z-index:2; padding:56px 48px 44px; max-width:900px; }
-  .course-tag {
-    display:inline-block; font-family:'DM Mono',monospace;
-    font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase;
-    color:var(--gold); background:rgba(253,208,35,.12);
-    border:1px solid rgba(253,208,35,.3); padding:5px 14px; border-radius:2px; margin-bottom:20px;
-  }
-  .hero h1 {
-    font-family:'Bebas Neue',sans-serif;
-    font-size:clamp(44px,6.5vw,76px); line-height:.93; letter-spacing:.02em;
-    color:white; margin-bottom:14px;
-  }
-  .hero h1 span { color:var(--gold); display:block; }
-  .hero-sub { font-size:15px; color:white; font-weight:300; max-width:540px; line-height:1.6; }
-  .hero-sub em { color:rgba(255,255,255,.82); font-style:italic; }
-  .hero-tags { display:flex; gap:10px; margin-top:22px; flex-wrap:wrap; }
-  .hero-tag {
-    font-size:12px; color:white; font-weight:500;
-    background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25);
-    padding:5px 13px; border-radius:20px;
-  }
-  .hero-tag strong { color:var(--gold); font-weight:700; }
+  <!-- LO QUE VAS A SABER HACER -->
+  <div style="background: #E9F0F7; border-radius: 14px; padding: 22px 26px; margin-bottom: 24px;">
+    <p style="margin: 0 0 10px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: #1F4B7A; font-weight: bold;">
+      🎯 Al final de estos 50 minutos vas a tener</p>
+    <table style="width: 100%; border-collapse: collapse; font-family: Georgia, serif; font-size: 16px; color: #1C1917;">
+      <tbody>
+        <tr>
+          <td style="padding: 4px 12px 4px 0; width: 50%; vertical-align: top;">✅ El mapa de tu sitio, decidido después de ver las opciones</td>
+          <td style="padding: 4px 0 4px 12px; vertical-align: top;">✅ Tu plataforma elegida y el sitio creado, con nombre y tema</td>
+        </tr>
+        <tr>
+          <td style="padding: 4px 12px 4px 0; vertical-align: top;">✅ Cinco páginas y un menú que se entiende</td>
+          <td style="padding: 4px 0 4px 12px; vertical-align: top;">✅ Una página de inicio con tu tensión en una frase</td>
+        </tr>
+        <tr>
+          <td style="padding: 4px 12px 4px 0; vertical-align: top;">✅ Tu póster puesto en el sitio, con texto alternativo</td>
+          <td style="padding: 4px 0 4px 12px; vertical-align: top;">✅ El esqueleto publicado y el enlace en Moodle</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-  /* ── LAYOUT ── */
-  .page-wrap { max-width:860px; margin:0 auto; padding:0 24px 80px; }
-  .section { margin-bottom:60px; }
-  .section-label {
-    font-family:'DM Mono',monospace; font-size:10px;
-    letter-spacing:.22em; text-transform:uppercase;
-    color:var(--purple-light); margin-bottom:6px;
-  }
-  h2.section-title {
-    font-family:'Bebas Neue',sans-serif;
-    font-size:30px; letter-spacing:.04em;
-    color:var(--purple-dark); margin-bottom:8px; line-height:1;
-  }
-  .section-sub { font-size:14px; color:#2A2A2A; margin-bottom:22px; line-height:1.6; }
-  .section-sub em { color:#2A2A2A; }
+  <!-- PREGUNTA CENTRAL -->
+  <div style="background: #ffffff; border: 2px solid #1F4B7A; border-radius: 14px; padding: 22px 26px; margin-bottom: 24px;">
+    <p style="margin: 0 0 8px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: #1F4B7A; font-weight: bold;">
+      ❓ Pregunta del taller</p>
+    <p style="margin: 0 0 14px; font-family: Georgia, serif; font-size: 19px; color: #1C1917;">
+      Si alguien llega a tu sitio y solo lee el menú, ¿entiende qué tensión sigues?</p>
+    <p style="margin: 0 0 14px; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      En una página web nadie empieza por el principio. La gente mira el título, recorre el menú y decide
+      si se queda. Por eso el orden y el nombre de tus páginas no son decoración: son el esquema de tu
+      argumento, a la vista de todo el mundo.</p>
+    <p style="margin: 0; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      Tu sitio no es un archivador con tres tareas adentro. Es el recorrido de <strong>una sola tensión</strong>
+      por cinco unidades: el podcast la trabajó desde la tierra y la comida, el póster desde una voz que resiste,
+      y la investigación final la baja a un caso histórico. Hoy decides cómo se ve ese recorrido.</p>
+  </div>
 
-  /* ── CALLOUTS ── */
-  .callout-purple {
-    background:var(--purple); color:white;
-    border-radius:var(--radius); padding:26px 32px; margin-bottom:52px; margin-top:28px;
-    position:relative; overflow:hidden;
-  }
-  .callout-purple::after {
-    content:'📋'; position:absolute; right:28px; top:50%;
-    transform:translateY(-50%); font-size:52px; opacity:.12;
-  }
-  .callout-gold {
-    background:var(--gold); color:var(--purple-dark);
-    border-radius:var(--radius); padding:16px 22px; margin-top:18px;
-    font-size:14px; font-weight:600; line-height:1.55;
-  }
-  .callout-gold em { font-weight:400; font-style:italic; color:var(--purple); }
-  .callout-warn {
-    background:#FFF8E1; border:1px solid #FFD54F; border-left:4px solid var(--orange);
-    border-radius:var(--radius); padding:14px 20px; font-size:13px;
-    color:#4A3000; line-height:1.6; margin-top:16px;
-  }
-  .callout-warn strong { color:#3A2000; }
-  .callout-info {
-    background:var(--step-bg); border:1px solid var(--border);
-    border-left:4px solid var(--purple);
-    border-radius:var(--radius); padding:14px 20px; font-size:13px;
-    color:#2A2A2A; line-height:1.6; margin-top:16px;
-  }
+  <!-- LOGÍSTICA -->
+  <table style="width: 100%; border-collapse: collapse; font-size: 16px; border: 1px solid #cccccc; margin-bottom: 26px; font-family: Georgia, serif;">
+    <tbody>
+      <tr style="background: #1C1917; color: #ffffff;">
+        <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; width: 170px; color: #ffffff; text-align: left;">📌 Logística</th>
+        <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; color: #ffffff; text-align: left;">Detalle</th>
+      </tr>
+      <tr style="background: #f5f5f5;">
+        <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Hoy traes</td>
+        <td style="padding: 11px 14px;">Tu portátil cargado, tu <strong>póster en PNG</strong> (el que subiste a Moodle), el
+          <strong>texto alternativo</strong> que ya escribiste para él, y tu tensión en una frase.
+          Si no tienes portátil, hoy construyes en la pantalla de tu pareja y terminas el tuyo en casa con esta guía.</td>
+      </tr>
+      <tr>
+        <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Cuenta</td>
+        <td style="padding: 11px 14px;">Una <strong>cuenta de Google</strong>, y siempre la misma: la que tiene el MP3 de tu podcast en Drive.
+          Si una cuenta de escuela o de trabajo no te deja publicar para «cualquier persona», cambia a tu cuenta personal (Gmail).</td>
+      </tr>
+      <tr style="background: #f5f5f5;">
+        <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Idioma</td>
+        <td style="padding: 11px 14px;">El <strong>sitio se escribe en inglés</strong>: es tu trabajo presentado a un público amplio.
+          El podcast y la <strong>investigación final van en español</strong>. Y en clase —hoy y el día de tu presentación— hablamos de tu sitio en español.</td>
+      </tr>
+      <tr>
+        <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Hoy entregas</td>
+        <td style="padding: 11px 14px;">El <strong>enlace de tu sitio publicado</strong>, en el foro de Moodle. Si no alcanzas en clase,
+          el límite es <strong>antes del lunes 30 de noviembre</strong>.</td>
+      </tr>
+      <tr style="background: #f5f5f5;">
+        <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Taller V-T 4</td>
+        <td style="padding: 11px 14px;">Semana del 23 de noviembre, <strong>en video</strong>: insertar el podcast, multimedia,
+          accesibilidad y revisión final. Hoy es la estructura; el contenido llega después.</td>
+      </tr>
+      <tr>
+        <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Presentaciones</td>
+        <td style="padding: 11px 14px;"><strong>30 de noviembre, 2 y 4 de diciembre.</strong> Presentas el sitio en vivo, desde el
+          enlace público. La página web vale el 20&nbsp;% de la nota final.</td>
+      </tr>
+      <tr style="background: #f5f5f5;">
+        <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Investigación final</td>
+        <td style="padding: 11px 14px;">Del 7 al 12 de diciembre, en español. Tu sitio presenta esa investigación en inglés:
+          por eso hoy le dejas su página creada, aunque esté vacía.</td>
+      </tr>
+    </tbody>
+  </table>
 
-  /* ── WHAT IS THIS ── */
-  .what-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:16px; }
-  @media(max-width:560px){ .what-grid{ grid-template-columns:1fr; } }
-  .what-card {
-    background:white; border:1px solid var(--border);
-    border-radius:var(--radius); padding:18px 20px;
-    position:relative; overflow:hidden;
-  }
-  .what-card::before {
-    content:''; position:absolute; top:0; left:0; right:0;
-    height:3px;
-  }
-  .what-card.before::before { background:#BBA8D8; }
-  .what-card.now::before { background:var(--gold); }
-  .what-card .wc-label {
-    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.18em;
-    text-transform:uppercase; margin-bottom:10px; display:block; font-weight:600;
-  }
-  .what-card.before .wc-label { color:#BBA8D8; }
-  .what-card.now .wc-label { color:var(--purple-light); }
-  .what-card ul { padding-left:16px; display:flex; flex-direction:column; gap:5px; }
-  .what-card li { font-size:13px; color:#2A2A2A; line-height:1.5; }
-  .what-card.now li { color:var(--ink); font-weight:500; }
+  <!-- AVISO: BORRADOR Y PUBLICADO -->
+  <div style="background: #FDF6E7; border-left: 6px solid #E0A526; border-radius: 0 14px 14px 0; padding: 22px 26px; margin-bottom: 26px; font-family: Georgia, serif; font-size: 16px; color: #1C1917;">
+    <p style="margin: 0 0 8px; font-family: Arial, sans-serif; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: #8a5a2c; font-weight: bold;">
+      ⚠️ Lo único que tienes que entender antes de empezar</p>
+    <p style="margin: 0 0 12px;">Google Sites guarda dos versiones de tu sitio: el <strong>borrador</strong>, que solo ves tú
+      mientras editas, y el <strong>sitio publicado</strong>, que ve el resto del mundo. Todo lo que cambias se guarda
+      solo en el borrador. <strong>Nada llega al público hasta que vuelves a pulsar <em>Publicar</em>.</strong></p>
+    <p style="margin: 0; color: #595959;">Es el error más común el día de la presentación: «pero yo lo arreglé anoche».
+      Lo arreglaste en el borrador. Si no encuentras un botón, dilo en voz alta — seguro que alguien en el salón lo tiene en pantalla.</p>
+  </div>
 
-  /* ── DELIVERABLES ── */
-  .deliverable-list { display:flex; flex-direction:column; gap:8px; }
-  .deliverable {
-    background:white; border:1px solid var(--border);
-    border-radius:var(--radius); overflow:hidden;
-    display:flex; align-items:stretch;
-  }
-  .del-accent {
-    width:6px; flex-shrink:0;
-  }
-  .del-body { padding:16px 20px; flex:1; }
-  .del-header { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-  .del-title { font-size:15px; font-weight:700; color:var(--purple-dark); line-height:1.3; }
-  .del-title em { font-size:13px; font-weight:400; font-style:italic; color:#2A2A2A; display:block; margin-top:2px; }
-  .del-badge {
-    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.1em;
-    text-transform:uppercase; padding:3px 10px; border-radius:20px;
-    font-weight:600; white-space:nowrap; flex-shrink:0;
-  }
-  .del-desc { font-size:13px; color:#2A2A2A; margin-top:8px; line-height:1.55; }
-  .del-desc em { font-style:italic; color:#2A2A2A; }
-  .del-items { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
-  .del-item {
-    font-size:12px; background:var(--step-bg); border:1px solid var(--border);
-    color:var(--purple-dark); padding:3px 10px; border-radius:20px; font-weight:500;
-  }
+  <!-- ══════════ BLOQUE 1 · VERDE ══════════ -->
+  <div style="border: 1px solid #cccccc; border-top: 6px solid #1B5E4A; border-radius: 14px; padding: 26px 30px; margin-bottom: 26px;">
+    <table style="border-collapse: collapse; margin-bottom: 14px;">
+      <tbody><tr>
+        <td style="padding: 0 14px 0 0; vertical-align: middle;">
+          <span style="display: inline-block; width: 46px; height: 46px; line-height: 46px; text-align: center; background: #EAF2EF; border-radius: 12px; font-size: 22px;">🗺️</span></td>
+        <td style="vertical-align: middle;">
+          <p style="margin: 0; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #1B5E4A; font-weight: bold;">
+            Bloque 1 &nbsp;·&nbsp; 10 minutos &nbsp;·&nbsp; en parejas, con el portátil abierto</p>
+          <h3 style="margin: 2px 0 0; font-size: 19px; color: #1C1917;">Mira las opciones: elige tu plataforma y decide tu mapa</h3></td>
+      </tr></tbody>
+    </table>
 
-  /* ── TIMELINE ── */
-  .timeline { display:flex; flex-direction:column; gap:6px; }
-  .tl-row { display:flex; gap:0; align-items:stretch; }
-  .tl-date {
-    background:var(--purple); color:white;
-    font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:.04em;
-    min-width:96px; text-align:center;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    padding:14px 10px; border-radius:var(--radius) 0 0 var(--radius); flex-shrink:0;
-    line-height:1.2;
-  }
-  .tl-date small {
-    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.1em;
-    opacity:.82; text-transform:uppercase; display:block; margin-top:3px;
-  }
-  .tl-body {
-    background:white; border:1px solid var(--border); border-left:none;
-    border-radius:0 var(--radius) var(--radius) 0;
-    padding:14px 20px; flex:1;
-  }
-  .tl-body h3 { font-size:14px; font-weight:700; color:var(--purple-dark); margin-bottom:3px; }
-  .tl-body p { font-size:13px; color:#2A2A2A; line-height:1.5; }
-  .tl-body p em { font-style:italic; }
-  .tl-tag {
-    display:inline-block; margin-top:6px;
-    font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.12em;
-    text-transform:uppercase; padding:2px 8px; border-radius:4px; font-weight:600;
-  }
-  .tl-row.key .tl-date { background:var(--gold); color:var(--purple-dark); }
-  .tl-row.final .tl-date { background:var(--purple-dark); }
-  .tl-spacer { height:4px; }
+    <p style="margin: 0 0 16px; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      Para decidir hay que ver. Este bloque tiene dos decisiones: <strong>dónde</strong> vas a construir tu portafolio
+      y <strong>qué páginas</strong> va a tener. Lo único que todavía no se toca son los colores.</p>
 
-  /* ── GOOGLE SITES STEPS ── */
-  .steps-grid { display:flex; flex-direction:column; gap:6px; }
-  .step-row { display:flex; gap:0; align-items:stretch; }
-  .step-num {
-    background:var(--gold); color:var(--purple-dark);
-    font-family:'Bebas Neue',sans-serif; font-size:24px;
-    min-width:52px; text-align:center;
-    display:flex; align-items:flex-start; justify-content:center;
-    padding-top:13px; border-radius:var(--radius) 0 0 var(--radius); flex-shrink:0;
-  }
-  .step-body {
-    background:white; border:1px solid var(--border); border-left:none;
-    border-radius:0 var(--radius) var(--radius) 0; padding:14px 20px; flex:1;
-  }
-  .step-body h3 { font-size:14px; font-weight:700; color:var(--purple-dark); margin-bottom:2px; }
-  .step-body .step-es { font-size:14px; color:#2A2A2A; font-style:italic; margin-bottom:6px; }
-  .step-body p { font-size:13px; color:#2A2A2A; line-height:1.55; }
-  .step-note {
-    display:inline-block; margin-top:8px; background:var(--step-bg);
-    border:1px solid var(--border); border-radius:4px;
-    padding:4px 10px; font-size:12px; color:var(--purple-dark); line-height:1.4;
-  }
+    <p style="margin: 0 0 8px; font-size: 14px; font-weight: bold; color: #1B5E4A;">Primera decisión (5 minutos): la plataforma</p>
+    <p style="margin: 0 0 14px; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      Estas son las opciones gratuitas más comunes y lo que cada una te cobra por ser gratis. Abre una o dos en otra pestaña
+      y mira cómo se ven sus ejemplos. Los planes cambian: <strong>revisa los límites en la página de la plataforma antes de elegir.</strong></p>
 
-  /* ── PAGE STRUCTURE ── */
-  .page-sections { display:flex; flex-direction:column; gap:8px; }
-  .ps-card {
-    background:white; border:1px solid var(--border);
-    border-radius:var(--radius); overflow:hidden;
-  }
-  .ps-head {
-    background:var(--purple-dark); color:white;
-    padding:12px 18px; display:flex; align-items:center; gap:12px;
-  }
-  .ps-num {
-    background:var(--gold); color:var(--purple-dark);
-    font-family:'Bebas Neue',sans-serif; font-size:16px;
-    width:28px; height:28px; border-radius:50%;
-    display:flex; align-items:center; justify-content:center; flex-shrink:0;
-  }
-  .ps-head-text h3 { font-size:14px; font-weight:700; color:white; }
-  .ps-head-text span { font-size:13px; color:rgba(255,255,255,.88); font-style:italic; }
-  .ps-body { padding:14px 18px; }
-  .ps-body p { font-size:13px; color:#2A2A2A; line-height:1.55; }
-  .ps-body em { font-style:italic; }
-  .ps-required {
-    display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;
-  }
-  .ps-req-item {
-    font-size:12px; background:var(--step-bg); border:1px solid var(--border);
-    color:var(--purple-dark); padding:3px 10px; border-radius:20px; font-weight:500;
-  }
+    <table style="width: 100%; border-collapse: collapse; font-size: 16px; border: 1px solid #cccccc; margin-bottom: 18px; font-family: Georgia, serif;">
+      <tbody>
+        <tr style="background: #1B5E4A; color: #ffffff;">
+          <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; width: 150px; color: #ffffff; text-align: left;">Plataforma</th>
+          <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; color: #ffffff; text-align: left;">Lo bueno</th>
+          <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; color: #ffffff; text-align: left;">El costo del plan gratis</th>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Google Sites</td>
+          <td style="padding: 11px 14px; border-right: 1px solid #cccccc;">La del taller. Sin anuncios, con tu podcast ya en Drive, y es la que te puedo ayudar a resolver en clase.</td>
+          <td style="padding: 11px 14px;">Menos libertad de diseño que las demás.</td>
+        </tr>
+        <tr>
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Canva Websites</td>
+          <td style="padding: 11px 14px; border-right: 1px solid #cccccc;">Ya la conoces por el póster, y <strong>LSU paga Canva para sus estudiantes</strong>: entra con tu cuenta de LSU.
+            Permite sitios de varias páginas con menú, y tu póster ya está ahí.</td>
+          <td style="padding: 11px 14px;">Con la cuenta de LSU, casi nada. Con una cuenta gratuita personal: un pie «Designed with Canva» y menos secciones por página.
+            Pregunta qué pasa con tu sitio cuando te gradúes.</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Wix</td>
+          <td style="padding: 11px 14px; border-right: 1px solid #cccccc;">El editor más visual, con muchas plantillas de portafolio.</td>
+          <td style="padding: 11px 14px;">Anuncios y marca de Wix en tu sitio, y una dirección que no eliges del todo.</td>
+        </tr>
+        <tr>
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">WordPress.com</td>
+          <td style="padding: 11px 14px; border-right: 1px solid #cccccc;">La más usada fuera de la universidad; buena para sitios con mucho texto.</td>
+          <td style="padding: 11px 14px;">Anuncios en tus páginas, pocos temas gratis y es la más lenta de aprender.</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Carrd</td>
+          <td style="padding: 11px 14px; border-right: 1px solid #cccccc;">Muy rápida para una tarjeta de presentación en línea.</td>
+          <td style="padding: 11px 14px;">Una sola página por sitio: no alcanza para este proyecto.</td>
+        </tr>
+      </tbody>
+    </table>
 
-  /* ── WRITTEN WORK ── */
-  .rubric-table {
-    width:100%; border-collapse:collapse;
-    border-radius:var(--radius); overflow:hidden;
-    border:1px solid var(--border);
-  }
-  .rubric-table thead tr { background:var(--purple); color:white; }
-  .rubric-table thead th {
-    padding:12px 16px; text-align:left;
-    font-size:12px; font-weight:600; letter-spacing:.05em;
-  }
-  .rubric-table tbody tr { border-bottom:1px solid var(--border); }
-  .rubric-table tbody tr:last-child { border-bottom:none; }
-  .rubric-table tbody tr:nth-child(even) { background:var(--step-bg); }
-  .rubric-table tbody td { padding:12px 16px; font-size:13px; color:#2A2A2A; vertical-align:top; }
-  .rubric-table .pts {
-    font-family:'Bebas Neue',sans-serif; font-size:20px;
-    color:var(--purple); white-space:nowrap;
-  }
+    <div style="margin-bottom: 18px;">
+      <a href="https://sites.google.com/new?hl=es" style="display: inline-block; background: #1B5E4A; color: #ffffff; text-decoration: none; font-size: 15px; font-weight: bold; padding: 10px 18px; border-radius: 10px; margin: 0 6px 8px 0;">Google Sites</a>
+      <a href="https://www.canva.com/" style="display: inline-block; background: #ffffff; color: #1B5E4A; border: 2px solid #1B5E4A; text-decoration: none; font-size: 15px; font-weight: bold; padding: 9px 18px; border-radius: 10px; margin: 0 6px 8px 0;">Canva</a>
+      <a href="https://www.wix.com/" style="display: inline-block; background: #ffffff; color: #1B5E4A; border: 2px solid #1B5E4A; text-decoration: none; font-size: 15px; font-weight: bold; padding: 9px 18px; border-radius: 10px; margin: 0 6px 8px 0;">Wix</a>
+      <a href="https://wordpress.com/" style="display: inline-block; background: #ffffff; color: #1B5E4A; border: 2px solid #1B5E4A; text-decoration: none; font-size: 15px; font-weight: bold; padding: 9px 18px; border-radius: 10px; margin: 0 6px 8px 0;">WordPress.com</a>
+      <a href="https://carrd.co/" style="display: inline-block; background: #ffffff; color: #1B5E4A; border: 2px solid #1B5E4A; text-decoration: none; font-size: 15px; font-weight: bold; padding: 9px 18px; border-radius: 10px; margin: 0 6px 8px 0;">Carrd</a>
+    </div>
 
-  /* ── CHECKLIST ── */
-  .checklist { background:white; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
-  .checklist-header {
-    background:var(--purple); color:white; padding:14px 22px;
-    display:flex; justify-content:space-between; align-items:center;
-  }
-  .checklist-header h3 { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:.05em; }
-  .checklist-header small { font-size:11px; color:rgba(255,255,255,.88); font-family:'DM Mono',monospace; }
-  .cl-item {
-    display:flex; align-items:flex-start; gap:14px;
-    padding:13px 22px; border-bottom:1px solid var(--border);
-    cursor:pointer; transition:background .15s; user-select:none;
-  }
-  .cl-item:last-child { border-bottom:none; }
-  .cl-item:hover { background:var(--step-bg); }
-  .cl-box {
-    width:22px; height:22px; border:2px solid var(--border);
-    border-radius:5px; flex-shrink:0; margin-top:1px;
-    display:flex; align-items:center; justify-content:center; transition:all .15s;
-  }
-  .cl-item.checked .cl-box { background:var(--purple); border-color:var(--purple); }
-  .cl-item.checked .cl-box::after { content:'✓'; color:white; font-size:13px; font-weight:700; }
-  .cl-item.checked .cl-en { text-decoration:line-through; opacity:.5; }
-  .cl-en { font-size:14px; color:var(--ink); font-weight:500; line-height:1.4; }
-  .cl-es { font-size:14px; color:#2A2A2A; font-style:italic; margin-top:2px; }
-  .cl-progress {
-    background:var(--step-bg); border-top:1px solid var(--border);
-    padding:12px 22px; display:flex; align-items:center; gap:12px;
-  }
-  .cl-bar-wrap { flex:1; height:6px; background:var(--border); border-radius:3px; overflow:hidden; }
-  .cl-bar { height:100%; background:var(--purple); border-radius:3px; transition:width .3s; width:0%; }
-  .cl-pct { font-size:12px; color:#2A2A2A; font-family:'DM Mono',monospace; white-space:nowrap; }
+    <div style="background: #EAF2EF; border-left: 5px solid #1B5E4A; border-radius: 0 12px 12px 0; padding: 18px 22px; margin-bottom: 18px; font-family: Georgia, serif; font-size: 16px; color: #1C1917;">
+      <strong style="color: #1B5E4A;">📏 Las condiciones son las mismas para todo el mundo.</strong> Uses la plataforma que uses, tu sitio necesita:
+      un <strong>enlace público</strong> que se abra sin iniciar sesión, las <strong>cinco secciones</strong> del proyecto,
+      el <strong>podcast que se reproduce</strong> y el póster con texto alternativo. Si eliges otra plataforma, el soporte técnico corre por tu cuenta.
+      Ojo: Squarespace y Adobe Portfolio no tienen plan gratuito permanente.
+    </div>
 
-  /* ── FOOTER ── */
-  footer {
-    background:var(--purple-dark); color:rgba(255,255,255,.88);
-    padding:26px 48px; font-size:12px;
-    display:flex; justify-content:space-between; align-items:center;
-    flex-wrap:wrap; gap:10px;
-  }
-  footer span { color:var(--gold); font-weight:600; }
+    <div style="background: #EAF2EF; border-radius: 12px; padding: 18px 22px; margin-bottom: 22px; font-family: Georgia, serif; font-size: 16px; color: #1C1917;">
+      <strong style="font-family: Arial, sans-serif; font-size: 14px; color: #1B5E4A;">🧭 Si no sabes cuál elegir</strong><br>
+      Hay dos buenas opciones. <strong>Google Sites</strong> es la que vamos a usar en pantalla hoy, y los pasos de esta guía están escritos para ella.
+      <strong>Canva</strong> es la otra: ya la manejas, la tienes con tu cuenta de LSU y tu póster ya vive ahí.
+      En cualquier otra plataforma los pasos son los mismos —nombre, páginas, página de inicio, publicar— pero los botones tienen otro nombre y otro lugar.
+    </div>
 
-  /* ── RESPONSIVE ── */
-  @media(max-width:640px){
-    .hero-inner { padding:36px 20px 32px; }
-    .page-wrap { padding:0 16px 60px; }
-    footer { padding:22px; flex-direction:column; text-align:center; }
-    .tl-date { min-width:78px; font-size:13px; }
-  }
+    <p style="margin: 0 0 8px; font-size: 14px; font-weight: bold; color: #1B5E4A;">Segunda decisión (5 minutos): el mapa</p>
+    <ol style="margin: 0 0 18px; padding-left: 26px; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      <li style="margin-bottom: 10px;"><strong>Abre tu plataforma</strong> y crea un <strong>sitio en blanco</strong>. En Google Sites: <em>sites.google.com</em>, con tu cuenta de Google.
+        No uses una plantilla: vienen llenas de páginas que después hay que borrar.</li>
+      <li style="margin-bottom: 10px;"><strong>Recorre los paneles</strong> sin cambiar nada todavía —en Google Sites son las pestañas <em>Insertar</em>, <em>Páginas</em> y <em>Temas</em>—.
+        Solo mira qué se puede poner en una página y cómo se arma el menú.</li>
+      <li style="margin-bottom: 10px;"><strong>Decide:</strong> escribe los nombres de tus cinco páginas, en el orden en que van a aparecer en el menú,
+        en una hoja o en una nota. Estas son las cinco páginas del proyecto; los nombres del menú, en inglés, los afinas tú.</li>
+    </ol>
 
-  /* ── ANIMATE ── */
-  @keyframes fadeUp {
-    from { opacity:0; transform:translateY(14px); }
-    to   { opacity:1; transform:translateY(0); }
-  }
-  .hero-inner > * { animation:fadeUp .55s both; }
-  .hero-inner > *:nth-child(1){ animation-delay:.05s; }
-  .hero-inner > *:nth-child(2){ animation-delay:.15s; }
-  .hero-inner > *:nth-child(3){ animation-delay:.25s; }
-  .hero-inner > *:nth-child(4){ animation-delay:.35s; }
+    <table style="width: 100%; border-collapse: collapse; font-size: 16px; border: 1px solid #cccccc; margin-bottom: 18px; font-family: Georgia, serif;">
+      <tbody>
+        <tr style="background: #1B5E4A; color: #ffffff;">
+          <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; width: 200px; color: #ffffff; text-align: left;">Página</th>
+          <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; color: #ffffff; text-align: left;">Qué vive ahí</th>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">1. Home / About me</td>
+          <td style="padding: 11px 14px;">Tu tensión en una frase, una imagen, y quién eres: una biografía breve y qué tiene que ver el español con tu futuro.</td>
+        </tr>
+        <tr>
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">2. Research</td>
+          <td style="padding: 11px 14px;">Tu investigación, en inglés: dos o tres secciones con títulos, datos concretos, imágenes y fuentes citadas. Hoy queda vacía.</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">3. Podcast</td>
+          <td style="padding: 11px 14px;">El audio, una descripción breve de qué trata, el nombre de tu pareja y dos o tres oraciones sobre qué aprendiste al hacerlo.</td>
+        </tr>
+        <tr>
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">4. Campaign poster</td>
+          <td style="padding: 11px 14px;">Tu póster «Conoce a…», con su eslogan, su texto alternativo y una explicación breve de tus decisiones de diseño.</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">5. Resources</td>
+          <td style="padding: 11px 14px;">Tus fuentes —cinco o más, con cita completa— y enlaces a organizaciones y programas. También el crédito de cada imagen y de la música.</td>
+        </tr>
+      </tbody>
+    </table>
 
-  /* ── WEB DESIGN TIPS ── */
-  .tips-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-  @media(max-width:580px){ .tips-grid{ grid-template-columns:1fr; } }
-  .tip-card {
-    background:white; border:1px solid var(--border);
-    border-radius:var(--radius); padding:18px 20px;
-    position:relative; overflow:hidden;
-  }
-  .tip-card::before {
-    content:''; position:absolute; top:0; left:0; right:0; height:3px;
-    background:var(--gold);
-  }
-  .tip-card .tip-icon { font-size:24px; margin-bottom:8px; display:block; }
-  .tip-card h3 {
-    font-size:13px; font-weight:700; text-transform:uppercase;
-    letter-spacing:.06em; color:var(--purple); margin-bottom:4px;
-  }
-  .tip-card .tip-es {
-    font-size:13px; color:#2A2A2A; font-style:italic; margin-bottom:8px;
-  }
-  .tip-card ul { padding-left:16px; display:flex; flex-direction:column; gap:5px; }
-  .tip-card li { font-size:13px; color:#2A2A2A; line-height:1.5; }
-  .tip-card li em { font-style:italic; color:#2A2A2A; }
-  .do-dont-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px; }
-  .do-box, .dont-box { border-radius:8px; padding:12px 14px; }
-  .do-box { background:#EDF7EE; border:1px solid #B8DFB9; }
-  .dont-box { background:#FEF0F0; border:1px solid #F5C6C6; }
-  .do-box strong { display:block; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#1B5E20; margin-bottom:6px; }
-  .dont-box strong { display:block; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#7A1818; margin-bottom:6px; }
-  .do-box li, .dont-box li { font-size:12px; color:#2A2A2A; line-height:1.5; margin-bottom:4px; list-style:none; padding-left:0; }
-  .do-box li::before { content:'✓ '; color:#1B5E20; font-weight:700; }
-  .dont-box li::before { content:'✗ '; color:#C62828; font-weight:700; }
-</style>
-</head>
-<body>
+    <div style="background: #EAF2EF; border-radius: 12px; padding: 18px 22px; margin-bottom: 18px; font-family: Georgia, serif; font-size: 16px; color: #1C1917;">
+      <strong style="font-family: Arial, sans-serif; font-size: 14px; color: #1B5E4A;">✏️ Nombres que digan algo</strong><br>
+      <em>Home</em> se queda como <em>Home</em>: es la etiqueta que todo el mundo busca. Las demás pueden decir más que el formato.
+      Compara <em>Podcast</em> con <em>Listen: Who Owns the Water?</em>, o <em>Campaign poster</em> con <em>Meet Berta</em>.
+      De una a cuatro palabras por nombre: el menú tiene que caber en una línea, sin desplegables.
+    </div>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-stripe"></div>
-  <div class="hero-inner">
-    <div class="course-tag">SPAN 2156 · Spring 2026 · Proyecto Final</div>
-    <h1>Portafolio<span>Electrónico Individual</span></h1>
-    <p class="hero-sub">
-      Your individual digital portfolio — research, podcast, and campaign poster on one Google Site.<br>
-      <em>Tu portafolio digital individual — investigación, podcast y póster de campaña en un Google Site.</em>
-    </p>
-    <div class="hero-tags">
-      <div class="hero-tag">Platform: <strong>Google Sites</strong></div>
-      <div class="hero-tag">Individual work · <strong>Trabajo individual</strong></div>
-      <div class="hero-tag">Presentations: <strong>Apr 20–24</strong></div>
-      <div class="hero-tag">Final paper: <strong>May 8</strong></div>
+    <div style="background: #ffffff; border-left: 5px solid #E0A526; border-radius: 0 12px 12px 0; padding: 18px 22px; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      <strong style="color: #8a5a2c;">🔊 Actividad: la prueba del menú.</strong> Enséñale a tu pareja solo tus cinco nombres,
+      nada más. Tiene treinta segundos para decirte, en español: <strong>«Creo que tu sitio defiende que…»</strong>
+      Si acierta, tu menú funciona. Si dice «es un sitio sobre Bolivia», el menú describe un lugar y no una tensión:
+      cambia un nombre y prueben otra vez. Después se cambian los papeles.<br>
+      <span style="color: #595959;">Para responder: <em>por el orden, parece que… · no me queda claro qué es… ·
+      yo le cambiaría el nombre a… · me dan ganas de abrir primero…</em></span>
     </div>
   </div>
-</header>
 
-<div class="page-wrap">
+  <!-- ══════════ BLOQUE 2 · DORADO ══════════ -->
+  <div style="border: 1px solid #cccccc; border-top: 6px solid #E0A526; border-radius: 14px; padding: 26px 30px; margin-bottom: 26px;">
+    <table style="border-collapse: collapse; margin-bottom: 14px;">
+      <tbody><tr>
+        <td style="padding: 0 14px 0 0; vertical-align: middle;">
+          <span style="display: inline-block; width: 46px; height: 46px; line-height: 46px; text-align: center; background: #FDF6E7; border-radius: 12px; font-size: 22px;">🧱</span></td>
+        <td style="vertical-align: middle;">
+          <p style="margin: 0; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #8a5a2c; font-weight: bold;">
+            Bloque 2 &nbsp;·&nbsp; 8 minutos &nbsp;·&nbsp; cada quien en su pantalla</p>
+          <h3 style="margin: 2px 0 0; font-size: 19px; color: #1C1917;">Crear el sitio y vestirlo una sola vez</h3></td>
+      </tr></tbody>
+    </table>
 
-  <!-- WHAT IS THIS -->
-  <section class="section">
-    <div class="callout-purple" style="margin-top:28px;">
-      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">What is this project · ¿Qué es este proyecto?</div>
-      <h2 style="font-size:18px;font-weight:700;color:white;margin-bottom:14px;">Your final portfolio brings together everything you have done this semester into one professional website.</h2>
-      <p style="font-size:14px;color:rgba(255,255,255,.88);line-height:1.6;margin-bottom:8px;">You will build an individual Google Site that showcases your research, your podcast, and your campaign poster — all connected to your community of Spanish.</p>
-      <p style="font-size:14px;color:rgba(255,255,255,.88);font-style:italic;line-height:1.6;">Crearás un Google Site individual que muestra tu investigación, tu podcast y tu póster de campaña — todo conectado a tu comunidad de español.</p>
+    <ol style="margin: 0 0 18px; padding-left: 26px; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      <li style="margin-bottom: 10px;">Vuelve al <strong>sitio en blanco</strong> que abriste en el bloque 1. Ya sabes qué va adentro; ahora sí se construye.</li>
+      <li style="margin-bottom: 10px;">Ponle los <strong>tres nombres</strong> (tabla de abajo). Es el paso donde más gente se confunde.</li>
+      <li style="margin-bottom: 10px;">En el panel de la derecha hay tres pestañas: <strong>Insertar</strong>, <strong>Páginas</strong>
+        y <strong>Temas</strong>. Abre <em>Temas</em>, elige uno y un solo color de acento. Dos minutos, no más.</li>
+      <li style="margin-bottom: 10px;">Pasa el cursor por el encabezado y cambia el <strong>tipo de encabezado</strong>:
+        <em>Banner</em> para la página de inicio. <em>Portada</em> llena toda la pantalla y esconde tu texto.</li>
+    </ol>
+
+    <table style="width: 100%; border-collapse: collapse; font-size: 16px; border: 1px solid #cccccc; margin-bottom: 18px; font-family: Georgia, serif;">
+      <tbody>
+        <tr style="background: #8a5a2c; color: #ffffff;">
+          <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; width: 200px; color: #ffffff; text-align: left;">Nombre</th>
+          <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; color: #ffffff; text-align: left;">Dónde está y quién lo ve</th>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Nombre del archivo</td>
+          <td style="padding: 11px 14px;">Arriba a la izquierda, donde dice «Sitio sin título». Solo lo ves tú, en tu Drive.
+            Ponle tu nombre, no el de la clase: <code style="background: #FDF6E7; padding: 2px 6px; border-radius: 3px;">Portfolio Apellido Nombre</code>,
+            o como quieras llamarlo. Es tu portafolio y sigue siendo tuyo después del curso.</td>
+        </tr>
+        <tr>
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Nombre del sitio</td>
+          <td style="padding: 11px 14px;">En la barra de arriba de la página, al lado del menú. Lo ve todo visitante, en todas las páginas.
+            Aquí va tu tensión en pocas palabras: <em>Who Owns the Water?</em></td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Título de la página</td>
+          <td style="padding: 11px 14px;">El texto grande sobre la imagen del encabezado. Cambia en cada página.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="background: #FDF6E7; border-radius: 12px; padding: 18px 22px; font-family: Georgia, serif; font-size: 16px; color: #1C1917;">
+      <strong style="font-family: Arial, sans-serif; font-size: 14px; color: #8a5a2c;">🎨 Tu póster ya decidió el diseño</strong><br>
+      No inventes una paleta nueva. El color de acento del sitio sale de tu póster: así, cuando alguien pase de la
+      página de inicio a la campaña, entiende que son la misma persona y el mismo argumento. Una familia de letra
+      para todo el sitio; el tema la escoge por ti y casi siempre escoge bien.
+    </div>
+  </div>
+
+  <!-- ══════════ BLOQUE 3 · MORADO ══════════ -->
+  <div style="border: 1px solid #cccccc; border-top: 6px solid #5B2B6B; border-radius: 14px; padding: 26px 30px; margin-bottom: 26px;">
+    <table style="border-collapse: collapse; margin-bottom: 14px;">
+      <tbody><tr>
+        <td style="padding: 0 14px 0 0; vertical-align: middle;">
+          <span style="display: inline-block; width: 46px; height: 46px; line-height: 46px; text-align: center; background: #F1EAF3; border-radius: 12px; font-size: 22px;">🧭</span></td>
+        <td style="vertical-align: middle;">
+          <p style="margin: 0; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #5B2B6B; font-weight: bold;">
+            Bloque 3 &nbsp;·&nbsp; 10 minutos &nbsp;·&nbsp; reto con cronómetro</p>
+          <h3 style="margin: 2px 0 0; font-size: 19px; color: #1C1917;">Páginas y menú: del mapa a la pantalla</h3></td>
+      </tr></tbody>
+    </table>
+
+    <p style="margin: 0 0 16px; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      Ahora pasas tu mapa al sitio. El menú no se construye aparte: Google Sites lo arma solo con las páginas
+      que creas, en el orden en que las dejas. <strong>La persona que termina levanta la mano y pasa a ayudar a otra.</strong></p>
+
+    <table style="width: 100%; border-collapse: collapse; font-size: 16px; border: 1px solid #cccccc; margin-bottom: 18px; font-family: Georgia, serif;">
+      <tbody>
+        <tr style="background: #5B2B6B; color: #ffffff;">
+          <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; width: 200px; color: #ffffff; text-align: left;">Operación</th>
+          <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; color: #ffffff; text-align: left;">Cómo</th>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">1. Crear las páginas</td>
+          <td style="padding: 11px 14px;">Pestaña <strong>Páginas</strong> → botón <strong>+</strong> → <em>Página nueva</em> → escribe el nombre
+            de tu mapa. Cuatro veces: la de inicio ya existe.</td>
+        </tr>
+        <tr>
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">2. Ordenarlas</td>
+          <td style="padding: 11px 14px;">Arrastra cada página en la lista hasta dejarla en el orden de tu mapa. El menú cambia al mismo tiempo.</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">3. Cuidar la dirección</td>
+          <td style="padding: 11px 14px;">Al crear cada página, abre las opciones avanzadas y escribe una <strong>ruta corta</strong>:
+            <code style="background: #F1EAF3; padding: 2px 6px; border-radius: 3px;">podcast</code>,
+            <code style="background: #F1EAF3; padding: 2px 6px; border-radius: 3px;">poster</code>,
+            <code style="background: #F1EAF3; padding: 2px 6px; border-radius: 3px;">research</code>.
+            Minúsculas, sin acentos, sin espacios — igual que el nombre de tu MP3.</td>
+        </tr>
+        <tr>
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">4. Elegir el menú</td>
+          <td style="padding: 11px 14px;">Pasa el cursor por el nombre del sitio → rueda de <strong>ajustes de navegación</strong>.
+            Con cinco páginas, el menú <em>superior</em> se lee mejor que el lateral.</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">5. Mirarlo como visitante</td>
+          <td style="padding: 11px 14px;">Botón <strong>Vista previa</strong> (el ícono de pantallas, arriba). Cambia a la vista de
+            <strong>teléfono</strong>: ahí es donde la mayoría de la gente va a abrir tu enlace.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="background: #F1EAF3; border-left: 5px solid #5B2B6B; border-radius: 0 12px 12px 0; padding: 18px 22px; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      <strong style="color: #5B2B6B;">📂 Subpáginas: solo si hacen falta.</strong> En los tres puntos de cada página puedes
+      <em>añadir una subpágina</em> o <em>ocultarla de la navegación</em>. Sirve, por ejemplo, para poner la transcripción
+      del podcast debajo de <em>Podcast</em>. Pero un menú con siete entradas y tres desplegables no es más completo: es más
+      difícil de leer. Cinco páginas bien nombradas ganan.
+    </div>
+  </div>
+
+  <!-- ══════════ BLOQUE 4 · TERRACOTA ══════════ -->
+  <div style="border: 1px solid #cccccc; border-top: 6px solid #9C4A1E; border-radius: 14px; padding: 26px 30px; margin-bottom: 26px;">
+    <table style="border-collapse: collapse; margin-bottom: 14px;">
+      <tbody><tr>
+        <td style="padding: 0 14px 0 0; vertical-align: middle;">
+          <span style="display: inline-block; width: 46px; height: 46px; line-height: 46px; text-align: center; background: #FBEFE8; border-radius: 12px; font-size: 22px;">🏠</span></td>
+        <td style="vertical-align: middle;">
+          <p style="margin: 0; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #9C4A1E; font-weight: bold;">
+            Bloque 4 &nbsp;·&nbsp; 10 minutos</p>
+          <h3 style="margin: 2px 0 0; font-size: 19px; color: #1C1917;">La página de inicio — y tu póster, ya en su lugar</h3></td>
+      </tr></tbody>
+    </table>
+
+    <p style="margin: 0 0 16px; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      La página de inicio tiene un solo trabajo: que quien llega sepa en diez segundos qué pregunta sigue este sitio
+      y por qué vale la pena seguir leyendo. Hoy le pones tres cosas.</p>
+
+    <ol style="margin: 0 0 18px; padding-left: 26px; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      <li style="margin-bottom: 10px;"><strong>El título:</strong> tu tensión, en inglés, como pregunta o como afirmación.
+        No <em>My SPAN 2156 Portfolio</em>.</li>
+      <li style="margin-bottom: 10px;"><strong>Un cuadro de texto</strong> (<em>Insertar → Cuadro de texto</em>) con dos o tres
+        oraciones en inglés: qué tensión sigues, en qué lugares de Latinoamérica la encontraste, y quién eres tú.
+        Escríbelas hoy aunque no queden perfectas; se pulen después.</li>
+      <li style="margin-bottom: 10px;"><strong>Una imagen de encabezado</strong> que sea tuya o tenga licencia abierta
+        (<em>Cambiar imagen</em>, sobre el encabezado). Anota de dónde salió: el crédito va en <em>Resources</em>.</li>
+    </ol>
+
+    <div style="background: #FBEFE8; border-radius: 12px; padding: 18px 22px; margin-bottom: 18px; font-family: Georgia, serif; font-size: 16px; color: #1C1917;">
+      <strong style="font-family: Arial, sans-serif; font-size: 14px; color: #9C4A1E;">🖼️ Ahora el póster</strong><br>
+      Ve a tu página del póster → <em>Insertar → Imágenes → Subir</em> → elige el PNG.
+      Después selecciona la imagen, abre los tres puntos y elige <strong>Añadir texto alternativo</strong>:
+      parte del que entregaste con el póster y pásalo al inglés, como el resto de la página. Ya lo pensaste; hoy solo llega a donde hacía falta.
+      Una persona que navega con lector de pantalla va a conocer tu póster por esas dos oraciones.
     </div>
 
-    <div class="what-grid">
-      <div class="what-card before">
-        <span class="wc-label">Before · Antes</span>
-        <ul>
-          <li>Group project (webzine)</li>
-          <li>Canva / Gamma / WordPress</li>
-          <li>Shared among teammates</li>
-          <li>Visual presentation only</li>
-        </ul>
-      </div>
-      <div class="what-card now">
-        <span class="wc-label">Now · Ahora</span>
-        <ul>
-          <li>Individual portfolio</li>
-          <li>Google Sites</li>
-          <li>Your work, your voice</li>
-          <li>Research + podcast + poster</li>
-        </ul>
-      </div>
+    <div style="background: #ffffff; border-left: 5px solid #E0A526; border-radius: 0 12px 12px 0; padding: 18px 22px; margin-bottom: 18px; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      <strong style="color: #8a5a2c;">🔊 Actividad: diez segundos.</strong> Gira tu pantalla hacia tu pareja y cuenta diez segundos.
+      Cierra el portátil. Tu pareja te dice, en español, <strong>qué recuerda</strong> y <strong>qué pregunta le quedó</strong>.
+      Lo que recuerda es lo que tu página de inicio comunica de verdad; lo demás, todavía no está ahí.<br>
+      <span style="color: #595959;">Para responder: <em>lo primero que vi fue… · entendí que el sitio trata de… ·
+      me quedé con la pregunta de… · no alcancé a leer…</em></span>
     </div>
 
-    <div class="callout-warn">
-      <strong>Important · Importante:</strong> Your research topic must be related to your future interest in Spanish — it can share some themes with your podcast, but it should take a different angle or go deeper. · <em>Tu tema debe estar relacionado con tu interés futuro en el español — puede compartir algunos temas con el podcast, pero debe tener un enfoque diferente o mayor profundidad.</em>
+    <div style="background: #FBEFE8; border-radius: 12px; padding: 18px 22px; font-family: Georgia, serif; font-size: 16px; color: #1C1917;">
+      <strong style="font-family: Arial, sans-serif; font-size: 14px; color: #9C4A1E;">📐 Tres reglas de diseño que bastan</strong>
+      <ul style="margin: 10px 0 0; padding-left: 24px;">
+        <li style="margin-bottom: 9px;"><strong>Texto oscuro sobre fondo claro.</strong> Si pones texto encima de una foto,
+          activa el ajuste de legibilidad del encabezado y compruébalo en la vista de teléfono.</li>
+        <li style="margin-bottom: 9px;"><strong>Un solo color de acento</strong>, el de tu póster. Los títulos se marcan con los
+          estilos <em>Título</em> y <em>Encabezado</em>, no con negrita y tamaño a mano: así los lee un lector de pantalla.</li>
+        <li><strong>Párrafos cortos.</strong> En pantalla se lee menos que en papel. Si un bloque pasa de cinco líneas en el
+          teléfono, pártelo.</li>
+      </ul>
     </div>
-  </section>
+  </div>
 
-  <!-- DELIVERABLES -->
-  <section class="section">
-    <div class="section-label">What you will submit · Lo que entregas</div>
-    <h2 class="section-title">Project Deliverables</h2>
-    <p class="section-sub">Two main deliverables — one website, one written paper. <em>Dos entregas principales — un sitio web y un trabajo escrito.</em></p>
+  <!-- ══════════ BLOQUE 5 · AZUL ══════════ -->
+  <div style="border: 1px solid #cccccc; border-top: 6px solid #1F4B7A; border-radius: 14px; padding: 26px 30px; margin-bottom: 26px;">
+    <table style="border-collapse: collapse; margin-bottom: 14px;">
+      <tbody><tr>
+        <td style="padding: 0 14px 0 0; vertical-align: middle;">
+          <span style="display: inline-block; width: 46px; height: 46px; line-height: 46px; text-align: center; background: #E9F0F7; border-radius: 12px; font-size: 22px;">🚀</span></td>
+        <td style="vertical-align: middle;">
+          <p style="margin: 0; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #1F4B7A; font-weight: bold;">
+            Bloque 5 &nbsp;·&nbsp; 8 minutos</p>
+          <h3 style="margin: 2px 0 0; font-size: 19px; color: #1C1917;">Publicar el esqueleto</h3></td>
+      </tr></tbody>
+    </table>
 
-    <div class="deliverable-list">
+    <p style="margin: 0 0 16px; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      Publicar un sitio a medio hacer incomoda, y por eso mismo se hace hoy: el enlace que funciona un miércoles
+      de noviembre es un problema menos el día de la presentación. Las páginas vacías están bien.</p>
 
-      <div class="deliverable">
-        <div class="del-accent" style="background:var(--purple);"></div>
-        <div class="del-body">
-          <div class="del-header">
-            <div class="del-title">
-              Google Site — Individual Portfolio
-              <em>Sitio Google — Portafolio Individual</em>
-            </div>
-            <span class="del-badge" style="background:var(--step-bg);color:var(--purple-dark);border:1px solid var(--border);">Due Apr 20</span>
-          </div>
-          <p class="del-desc">A professional website that presents your research in English, embeds your podcast, displays your campaign poster, and includes additional resources.<br><em>Un sitio web profesional que presenta tu investigación en inglés, incluye tu podcast, muestra tu póster de campaña y tiene recursos adicionales.</em></p>
-          <div class="del-items">
-            <span class="del-item">Research in English</span>
-            <span class="del-item">Podcast embedded</span>
-            <span class="del-item">Campaign poster</span>
-            <span class="del-item">Resources</span>
-            <span class="del-item">About me section</span>
-          </div>
-        </div>
-      </div>
+    <table style="width: 100%; border-collapse: collapse; font-size: 16px; border: 1px solid #cccccc; margin-bottom: 18px; font-family: Georgia, serif;">
+      <tbody>
+        <tr style="background: #1F4B7A; color: #ffffff;">
+          <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; width: 200px; color: #ffffff; text-align: left;">Paso</th>
+          <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; color: #ffffff; text-align: left;">Detalle</th>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">1. Publicar</td>
+          <td style="padding: 11px 14px;">Botón azul <strong>Publicar</strong>, arriba a la derecha.</td>
+        </tr>
+        <tr>
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">2. Dirección web</td>
+          <td style="padding: 11px 14px;">Escribe el final de tu dirección: minúsculas, sin acentos, sin espacios, con guiones.
+            Por ejemplo <code style="background: #E9F0F7; padding: 2px 6px; border-radius: 3px;">apellido-nombre-portfolio</code>
+            o <code style="background: #E9F0F7; padding: 2px 6px; border-radius: 3px;">who-owns-the-water</code>.
+            Queda como <em>sites.google.com/view/apellido-nombre-portfolio</em>. Sin el número del curso: la dirección te tiene que servir después de diciembre.</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">3. Quién puede verlo</td>
+          <td style="padding: 11px 14px;">En el sitio publicado: <strong>cualquier persona</strong>. Si queda en «restringido»,
+            el día de la presentación la clase ve una pantalla de error. El borrador, en cambio, se queda restringido: solo editas tú.</td>
+        </tr>
+        <tr>
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">4. Comprobar</td>
+          <td style="padding: 11px 14px;">Copia el enlace publicado y ábrelo en una <strong>ventana de incógnito</strong>, o pásaselo a
+            tu pareja para que lo abra en su teléfono. Si ella lo ve, lo ve todo el mundo.</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">5. Entregar</td>
+          <td style="padding: 11px 14px;">Pega el enlace <strong>publicado</strong> en el foro de Moodle. Ojo: el enlace de edición
+            (el que tiene <em>/edit</em> al final) no le sirve a nadie más que a ti.</td>
+        </tr>
+      </tbody>
+    </table>
 
-      <div class="deliverable">
-        <div class="del-accent" style="background:var(--gold);"></div>
-        <div class="del-body">
-          <div class="del-header">
-            <div class="del-title">
-              Trabajo Escrito Individual — en español
-              <em>Individual Written Paper — in Spanish</em>
-            </div>
-            <span class="del-badge" style="background:#FFF8E1;color:#4A3000;border:1px solid #FFD54F;">Due May 8</span>
-          </div>
-          <p class="del-desc">A 3–5 page research paper in Spanish that expands on what you presented on your website. This is the written version of your research — deeper analysis, specific data, academic sources.<br><em>Un trabajo de 3–5 páginas en español que expande lo que presentaste en tu sitio web.</em></p>
-          <div class="del-items">
-            <span class="del-item">3–5 páginas</span>
-            <span class="del-item">En español</span>
-            <span class="del-item">5+ fuentes (3 académicas)</span>
-            <span class="del-item">APA / MLA / Chicago</span>
-            <span class="del-item">Entrega en Moodle</span>
-          </div>
-        </div>
-      </div>
-
+    <div style="background: #E9F0F7; border-radius: 12px; padding: 18px 22px; font-family: Georgia, serif; font-size: 16px; color: #1C1917;">
+      <strong style="font-family: Arial, sans-serif; font-size: 14px; color: #1F4B7A;">🔒 Es un sitio público: tú decides cuánto de ti aparece</strong><br>
+      Puedes firmar con tu nombre completo, solo con tu nombre de pila o con el título de tu tensión; para la nota
+      me basta con saber de quién es el enlace, y eso lo sé por Moodle. En los ajustes de publicación también puedes
+      pedir que los buscadores no muestren tu sitio. Y cuando termine el curso, el sitio es tuyo: puedes seguir
+      ampliándolo, enseñarlo en una solicitud o despublicarlo.
     </div>
-  </section>
+  </div>
 
-  <!-- TIMELINE -->
-  <section class="section">
-    <div class="section-label">Key dates · Fechas importantes</div>
-    <h2 class="section-title">Schedule</h2>
-    <p class="section-sub">Plan your work around these dates. <em>Organiza tu trabajo con estas fechas en mente.</em></p>
+  <!-- ══════════ CIERRE ══════════ -->
+  <div style="border: 1px solid #cccccc; border-top: 6px solid #E0A526; border-radius: 14px; padding: 26px 30px; margin-bottom: 26px;">
+    <table style="border-collapse: collapse; margin-bottom: 12px;">
+      <tbody><tr>
+        <td style="padding: 0 14px 0 0; vertical-align: middle;">
+          <span style="display: inline-block; width: 46px; height: 46px; line-height: 46px; text-align: center; background: #FDF6E7; border-radius: 12px; font-size: 22px;">🗣️</span></td>
+        <td style="vertical-align: middle;">
+          <p style="margin: 0; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #8a5a2c; font-weight: bold;">
+            Cierre &nbsp;·&nbsp; 2 minutos &nbsp;·&nbsp; toda la clase</p>
+          <h3 style="margin: 2px 0 0; font-size: 19px; color: #1C1917;">La ronda de salida</h3></td>
+      </tr></tbody>
+    </table>
+    <p style="margin: 0; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      Una frase por persona, en español: <strong>«Mi sitio pregunta… y lo primero que vas a ver es…»</strong>
+      Es, palabra por palabra, la primera frase de tu presentación de diciembre. Hoy la dices por primera vez.</p>
+  </div>
 
-    <div class="timeline">
-      <div class="tl-row">
-        <div class="tl-date">Apr 6<small>Class</small></div>
-        <div class="tl-body">
-          <h3>Project introduction — Intro al proyecto</h3>
-          <p>Overview of the final portfolio: what it is, what it includes, and how to get started. Review these instructions as a class.<br><em>Presentación del portafolio final: qué es, qué incluye y cómo empezar. Revisamos estas instrucciones en clase.</em></p>
-        </div>
-      </div>
-      <div class="tl-spacer"></div>
-      <div class="tl-row">
-        <div class="tl-date">Apr 8<small>CxC</small></div>
-        <div class="tl-body">
-          <h3>Web Development Workshop I — CxC Studio</h3>
-          <p>Google Sites structure, navigation, pages, and layout. This session is at the CxC Studio.<br><em>Estructura de Google Sites, navegación, páginas. Esta sesión es en el CxC Studio.</em></p>
-          <span class="tl-tag" style="background:var(--step-bg);color:var(--purple-dark);">V-T Session 3 · CxC</span>
-        </div>
-      </div>
-      <div class="tl-spacer"></div>
-      <div class="tl-row">
-        <div class="tl-date">Apr 10<small>Class</small></div>
-        <div class="tl-body">
-          <h3>Bring your Google Site skeleton to class</h3>
-          <p>You must arrive with a Google Site already created — pages set up, theme chosen, basic structure in place. Work session to add content and begin embedding podcast and poster.<br><em>Debes llegar con un Google Site ya creado — páginas configuradas, tema elegido, estructura básica. Sesión de trabajo para agregar contenido e incrustar podcast y póster.</em></p>
-          <span class="tl-tag" style="background:#FFF8E1;color:#4A3000;border:1px solid #FFD54F;">Bring your site skeleton · Trae el esqueleto de tu sitio</span>
-        </div>
-      </div>
-      <div class="tl-spacer"></div>
-      <div class="tl-row">
-        <div class="tl-date">Apr 15<small>Lab</small></div>
-        <div class="tl-body">
-          <h3>Web Development Workshop II — Lab session</h3>
-          <p>Work in the lab: multimedia, images, accessibility, and refining your site. Bring your site open and ready to continue building.<br><em>Trabajo en el laboratorio: multimedia, imágenes, accesibilidad y refinamiento del sitio. Trae tu sitio abierto y listo para continuar.</em></p>
-          <span class="tl-tag" style="background:var(--step-bg);color:var(--purple-dark);">V-T Session 4 · Lab</span>
-        </div>
-      </div>
-      <div class="tl-spacer"></div>
-      <div class="tl-row">
-        <div class="tl-date">Apr 17<small>Class</small></div>
-        <div class="tl-body">
-          <h3>Finalize website + continue written paper</h3>
-          <p>Final touches on your Google Site. Continue drafting your written paper in Spanish. Site must be complete and ready to present by Apr 20.<br><em>Últimos ajustes al sitio. Continúa redactando el trabajo escrito. El sitio debe estar listo para presentar el 20 de abril.</em></p>
-        </div>
-      </div>
-      <div class="tl-spacer"></div>
-      <div class="tl-row key">
-        <div class="tl-date">Apr 20<small>Presentations</small></div>
-        <div class="tl-body">
-          <h3>Website Presentations begin — Site must be published</h3>
-          <p>Presentations continue Apr 22 and Apr 24. Your Google Site must be live and complete.<br><em>Las presentaciones continúan el 22 y 24 de abril. Tu sitio debe estar publicado y completo.</em></p>
-          <span class="tl-tag" style="background:var(--gold);color:var(--purple-dark);">Site due · Sitio listo</span>
-        </div>
-      </div>
-      <div class="tl-spacer"></div>
-      <div class="tl-row final">
-        <div class="tl-date">May 8<small>Finals</small></div>
-        <div class="tl-body">
-          <h3>Final written paper due — Moodle</h3>
-          <p>Submit your 3–5 page paper in Spanish on Moodle by <strong>May 8</strong>.<br><em>Entrega tu trabajo de 3–5 páginas en español en Moodle antes del <strong>8 de mayo</strong>.</em></p>
-          <span class="tl-tag" style="background:#2D1250;color:var(--gold);border:1px solid var(--gold);">Trabajo Final</span>
-        </div>
-      </div>
+  <!-- ══════════ APOYO DE LENGUA ══════════ -->
+  <div style="border: 1px solid #cccccc; border-top: 6px solid #1B5E4A; border-radius: 14px; padding: 26px 30px; margin-bottom: 26px;">
+    <table style="border-collapse: collapse; margin-bottom: 14px;">
+      <tbody><tr>
+        <td style="padding: 0 14px 0 0; vertical-align: middle;">
+          <span style="display: inline-block; width: 46px; height: 46px; line-height: 46px; text-align: center; background: #EAF2EF; border-radius: 12px; font-size: 22px;">💬</span></td>
+        <td style="vertical-align: middle;">
+          <p style="margin: 0; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #1B5E4A; font-weight: bold;">
+            Apoyo de lengua</p>
+          <h3 style="margin: 2px 0 0; font-size: 19px; color: #1C1917;">Presentar tu sitio en voz alta, en español</h3></td>
+      </tr></tbody>
+    </table>
+
+    <table style="width: 100%; border-collapse: collapse; font-size: 16px; border: 1px solid #cccccc; font-family: Georgia, serif;">
+      <tbody>
+        <tr style="background: #1B5E4A; color: #ffffff;">
+          <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; width: 200px; color: #ffffff; text-align: left;">Momento</th>
+          <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; color: #ffffff; text-align: left;">Fórmulas</th>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Las partes del sitio</td>
+          <td style="padding: 11px 14px;">la página de inicio · el menú · el encabezado · el pie de página · el enlace ·
+            la pestaña · el botón · insertar · subir un archivo · publicar · el borrador</td>
+        </tr>
+        <tr>
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Recibir al visitante</td>
+          <td style="padding: 11px 14px;">«Este sitio sigue una pregunta:…» · «Aquí vas a encontrar…» ·
+            «Empieza por… si quieres escuchar; por… si prefieres leer.»</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Conectar las piezas</td>
+          <td style="padding: 11px 14px;">«El podcast plantea el problema; la campaña le pone un rostro.» ·
+            «Lo que en el podcast era una cifra, aquí es una persona.» · «La investigación explica de dónde viene…»</td>
+        </tr>
+        <tr>
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Explicar una decisión</td>
+          <td style="padding: 11px 14px;">«Puse… primero porque…» · «Elegí este color porque viene de…» ·
+            «Le cambié el nombre a esta página para que…»</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">Guiar la mirada</td>
+          <td style="padding: 11px 14px;">«Aquí arriba está…» · «Si bajan un poco, van a ver…» ·
+            «En esta pestaña…» · «Las fuentes completas están en…»</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════ PORTAFOLIO ══════════ -->
+  <div style="background: #1F4B7A; color: #ffffff; border-radius: 14px; padding: 26px 30px; margin-bottom: 26px;">
+    <h3 style="margin: 0 0 10px; font-size: 19px; color: #ffffff;">📁 Lo que sigue, hasta la presentación</h3>
+    <p style="margin: 0 0 12px; font-family: Georgia, serif; font-size: 16px; color: #ffffff;">
+      Hoy quedó la casa. Las próximas dos semanas son para amueblarla, y casi todo el trabajo es tuyo y fuera de clase:
+      el miércoles 25 y el viernes 27 no nos reunimos.</p>
+    <ul style="margin: 0; padding-left: 24px; font-family: Georgia, serif; font-size: 16px; color: #ffffff;">
+      <li style="margin-bottom: 9px;"><strong>Hoy:</strong> el enlace publicado, en el foro de Moodle.</li>
+      <li style="margin-bottom: 9px;"><strong>Antes del taller V-T 4:</strong> comprueba que el MP3 de tu podcast esté en tu Drive
+        y compartido como «cualquier persona con el enlace». Si lo tiene tu pareja, pídele una copia: cada sitio necesita la suya.</li>
+      <li style="margin-bottom: 9px;"><strong>Semana del 23 de noviembre:</strong> taller V-T 4 en video — insertar el podcast,
+        multimedia, accesibilidad y revisión final. Puedes pausar y repetir.</li>
+      <li style="margin-bottom: 9px;"><strong>Antes del lunes 30:</strong> esqueleto publicado, sin excepción. Es lo mínimo;
+        lo ideal es llegar con el podcast y el póster ya en su página.</li>
+      <li style="margin-bottom: 9px;"><strong>30 de noviembre, 2 y 4 de diciembre:</strong> presentaciones, desde el enlace público.</li>
+      <li><strong>7 al 12 de diciembre:</strong> la investigación final, en español.</li>
+    </ul>
+  </div>
+
+  <!-- ══════════ LISTA DE COMPROBACIÓN ══════════ -->
+  <div style="border: 1px solid #cccccc; border-top: 6px solid #8E1B4C; border-radius: 14px; padding: 26px 30px; margin-bottom: 26px;">
+    <table style="border-collapse: collapse; margin-bottom: 14px;">
+      <tbody><tr>
+        <td style="padding: 0 14px 0 0; vertical-align: middle;">
+          <span style="display: inline-block; width: 46px; height: 46px; line-height: 46px; text-align: center; background: #FBEAF0; border-radius: 12px; font-size: 22px;">☑️</span></td>
+        <td style="vertical-align: middle;">
+          <p style="margin: 0; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #8E1B4C; font-weight: bold;">
+            Antes de pegar el enlace en Moodle</p>
+          <h3 style="margin: 2px 0 0; font-size: 19px; color: #1C1917;">El esqueleto está completo si…</h3></td>
+      </tr></tbody>
+    </table>
+    <ul style="margin: 0; padding-left: 4px; list-style: none; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      <li style="margin-bottom: 9px;">☐ El nombre del sitio dice tu tensión, no «Sitio sin título».</li>
+      <li style="margin-bottom: 9px;">☐ Hay cinco páginas en el menú, en el orden de tu mapa, con nombres claros.</li>
+      <li style="margin-bottom: 9px;">☐ La página de inicio tiene título, imagen y dos o tres oraciones.</li>
+      <li style="margin-bottom: 9px;">☐ El póster está en su página y tiene texto alternativo.</li>
+      <li style="margin-bottom: 9px;">☐ El sitio está publicado y se abre en una ventana de incógnito.</li>
+      <li>☐ El enlace que entregas es el público, no el de edición.</li>
+    </ul>
+
+    <p style="margin: 22px 0 10px; font-size: 14px; font-weight: bold; color: #8E1B4C;">Y antes de presentar, el sitio está listo si…</p>
+    <ul style="margin: 0; padding-left: 4px; list-style: none; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      <li style="margin-bottom: 9px;">☐ Tiene las cinco páginas: <em>Home, Research, Podcast, Campaign poster, Resources</em>.</li>
+      <li style="margin-bottom: 9px;">☐ La investigación está en inglés, con datos concretos y dos o tres secciones con título.</li>
+      <li style="margin-bottom: 9px;">☐ El podcast está insertado, se reproduce y tiene su descripción.</li>
+      <li style="margin-bottom: 9px;">☐ El póster se ve completo, con eslogan y explicación de diseño.</li>
+      <li style="margin-bottom: 9px;">☐ <em>Resources</em> tiene cinco fuentes o más, con cita completa y enlaces que abren.</li>
+      <li style="margin-bottom: 9px;">☐ El diseño es el mismo en todas las páginas: contraste, repetición, alineación, proximidad.</li>
+      <li>☐ Volviste a pulsar <em>Publicar</em> después del último cambio.</li>
+    </ul>
+  </div>
+
+  <!-- ══════════ CONSEJOS DE DISEÑO WEB ══════════ -->
+  <div style="border: 1px solid #cccccc; border-top: 6px solid #5B2B6B; border-radius: 14px; padding: 26px 30px; margin-bottom: 26px;">
+    <table style="border-collapse: collapse; margin-bottom: 14px;">
+      <tbody><tr>
+        <td style="padding: 0 14px 0 0; vertical-align: middle;">
+          <span style="display: inline-block; width: 46px; height: 46px; line-height: 46px; text-align: center; background: #F1EAF3; border-radius: 12px; font-size: 22px;">💡</span></td>
+        <td style="vertical-align: middle;">
+          <p style="margin: 0; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #5B2B6B; font-weight: bold;">
+            Para seguir construyendo en casa</p>
+          <h3 style="margin: 2px 0 0; font-size: 19px; color: #1C1917;">Consejos de diseño web para tu portafolio</h3></td>
+      </tr></tbody>
+    </table>
+
+    <p style="margin: 0 0 16px; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      Vienen del taller de diseño web de CxC. Sirven para este sitio y para cualquier portafolio profesional que armes después.</p>
+
+    <table style="width: 100%; border-collapse: collapse; font-size: 16px; border: 1px solid #cccccc; margin-bottom: 18px; font-family: Georgia, serif;">
+      <tbody>
+        <tr style="background: #5B2B6B; color: #ffffff;">
+          <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; width: 200px; color: #ffffff; text-align: left;">Tema</th>
+          <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; color: #ffffff; text-align: left;">Qué cuidar</th>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">🏠 Página de inicio</td>
+          <td style="padding: 11px 14px;">Muestra tu trabajo de inmediato y di en una frase quién eres y qué sigue tu sitio. Quien llega no debería tener que adivinar.</td>
+        </tr>
+        <tr>
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">🧭 Navegación</td>
+          <td style="padding: 11px 14px;">Menú arriba, igual en todas las páginas. Sin desplegables si tienes pocas páginas. Decide si el visitante baja o hace clic, y mantenlo. Los enlaces a otros sitios se abren en pestaña nueva.</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">📐 Diseño y contenido</td>
+          <td style="padding: 11px 14px;">Menos es más: no llenes la pantalla. Mismos colores, letra y espacios en todas las páginas. Las imágenes no hablan solas: dales título y una línea de contexto.</td>
+        </tr>
+        <tr>
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">📱 Versión móvil</td>
+          <td style="padding: 11px 14px;">La mayoría va a abrir tu enlace en el teléfono. Google Sites arma la versión móvil sola, pero compruébala en la vista previa: que nada quede cortado.</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">🖼️ Imágenes y medios</td>
+          <td style="padding: 11px 14px;">Buena resolución y tamaño suficiente para verse. Cuidado con el texto sobre fotos. Para archivos pesados, mejor un enlace al PDF que incrustarlo. Ordena de lo más fuerte a lo menos fuerte.</td>
+        </tr>
+        <tr>
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">♿ Accesibilidad</td>
+          <td style="padding: 11px 14px;">Un diseño accesible es un buen diseño. Revisa el contraste en cada página, alinea los párrafos a la izquierda —nunca centrados— y pon texto alternativo en cada imagen.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table style="width: 100%; border-collapse: collapse; font-family: Georgia, serif; font-size: 16px;">
+      <tbody><tr>
+        <td style="width: 50%; vertical-align: top; background: #EDF7EE; border: 1px solid #B8DFB9; padding: 16px 20px;">
+          <strong style="font-family: Arial, sans-serif; font-size: 14px; color: #1B5E20;">✓ Haz esto</strong>
+          <ul style="margin: 8px 0 0; padding-left: 22px; color: #1C1917;">
+            <li style="margin-bottom: 5px;">Menú arriba, siempre visible</li>
+            <li style="margin-bottom: 5px;">Enlaces externos en pestaña nueva</li>
+            <li style="margin-bottom: 5px;">Contraste revisado en cada página</li>
+            <li style="margin-bottom: 5px;">Una frase clara sobre quién eres</li>
+            <li style="margin-bottom: 5px;">Imágenes nítidas y con título</li>
+            <li style="margin-bottom: 5px;">Prueba en el teléfono mientras diseñas</li>
+            <li style="margin-bottom: 5px;">Mismos colores y letra en todo el sitio</li>
+          </ul></td>
+        <td style="width: 50%; vertical-align: top; background: #FEF0F0; border: 1px solid #F5C6C6; padding: 16px 20px;">
+          <strong style="font-family: Arial, sans-serif; font-size: 14px; color: #7A1818;">✗ Evita esto</strong>
+          <ul style="margin: 8px 0 0; padding-left: 22px; color: #1C1917;">
+            <li style="margin-bottom: 5px;">Menús desplegables con pocas páginas</li>
+            <li style="margin-bottom: 5px;">Texto sobre fotos con poco contraste</li>
+            <li style="margin-bottom: 5px;">Pantallas sobrecargadas</li>
+            <li style="margin-bottom: 5px;">Imágenes sin título ni contexto</li>
+            <li style="margin-bottom: 5px;">Un diseño distinto en cada página</li>
+            <li style="margin-bottom: 5px;">Imágenes tan pequeñas que no se ven</li>
+            <li style="margin-bottom: 5px;">Párrafos largos centrados</li>
+          </ul></td>
+      </tr></tbody>
+    </table>
+
+    <div style="background: #ffffff; border: 1px solid #cccccc; border-radius: 12px; padding: 18px 22px; margin-top: 18px; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      <strong style="font-family: Arial, sans-serif; font-size: 14px; color: #1F4B7A;">&lt;/&gt; ¿Sabes HTML?</strong><br>
+      Google Sites no deja editar el código de la página, pero sí pegar un bloque propio:
+      <em>Insertar → Incorporar → Insertar código</em>. El CSS va dentro de <code style="background: #E9F0F7; padding: 2px 6px; border-radius: 3px;">&lt;style&gt;</code>
+      y el JavaScript dentro de <code style="background: #E9F0F7; padding: 2px 6px; border-radius: 3px;">&lt;script&gt;</code>.
+      Ese bloque vive en una caja aparte: no cambia el menú ni el tema, y hay que comprobar cómo se ve en el teléfono.
+      Úsalo como un extra en una página —una línea de tiempo, un mapa— y nunca para el texto principal.
     </div>
-  </section>
+  </div>
 
-  <!-- GOOGLE SITE STRUCTURE -->
-  <section class="section">
-    <div class="section-label">Your website · Tu sitio web</div>
-    <h2 class="section-title">What Your Google Site Must Include</h2>
-    <p class="section-sub">Each section below is a page or section on your Google Site. <em>Cada punto es una página o sección de tu Google Site.</em></p>
+  <!-- ══════════ LIBRO: MEADE ══════════ -->
+  <div style="border: 1px solid #cccccc; border-top: 6px solid #1B5E4A; border-radius: 14px; padding: 26px 30px; margin-bottom: 26px;">
+    <table style="border-collapse: collapse; margin-bottom: 14px;">
+      <tbody><tr>
+        <td style="padding: 0 14px 0 0; vertical-align: middle;">
+          <span style="display: inline-block; width: 46px; height: 46px; line-height: 46px; text-align: center; background: #EAF2EF; border-radius: 12px; font-size: 22px;">📖</span></td>
+        <td style="vertical-align: middle;">
+          <p style="margin: 0; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #1B5E4A; font-weight: bold;">
+            Para escribir los textos de tu sitio</p>
+          <h3 style="margin: 2px 0 0; font-size: 19px; color: #1C1917;">Un libro abierto que te acompaña</h3></td>
+      </tr></tbody>
+    </table>
 
-    <div class="page-sections">
+    <p style="margin: 0 0 16px; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      Lynn Meade, <em>Building a Professional Portfolio</em> (University of Arkansas Libraries, 2023) — gratuito y en inglés,
+      como tu sitio. No hay que leerlo entero: estos son los capítulos que sirven para cada página.</p>
 
-      <div class="ps-card">
-        <div class="ps-head">
-          <div class="ps-num">1</div>
-          <div class="ps-head-text">
-            <h3>Home / About Me</h3>
-            <span>Inicio / Sobre mí</span>
-          </div>
-        </div>
-        <div class="ps-body">
-          <p>Introduce yourself and your topic. Why did you choose this community? How does Spanish connect to your future? Write in English.<br><em>Preséntate y presenta tu tema. ¿Por qué elegiste esta comunidad? ¿Cómo conecta el español con tu futuro? Escribe en inglés.</em></p>
-          <div class="ps-required">
-            <span class="ps-req-item">Photo or image</span>
-            <span class="ps-req-item">Brief bio</span>
-            <span class="ps-req-item">Topic introduction</span>
-            <span class="ps-req-item">Connection to Spanish</span>
-          </div>
-        </div>
-      </div>
+    <table style="width: 100%; border-collapse: collapse; font-size: 16px; border: 1px solid #cccccc; margin-bottom: 18px; font-family: Georgia, serif;">
+      <tbody>
+        <tr style="background: #1B5E4A; color: #ffffff;">
+          <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; width: 200px; color: #ffffff; text-align: left;">Capítulo</th>
+          <th scope="col" style="padding: 9px 14px; font-family: Arial, sans-serif; font-weight: bold; color: #ffffff; text-align: left;">Para qué te sirve</th>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">3 · About Me</td>
+          <td style="padding: 11px 14px;">Tu página <em>Home / About me</em>: ejemplos reales de estudiantes y preguntas para empezar a escribir.</td>
+        </tr>
+        <tr>
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">5 · Critical Reflection</td>
+          <td style="padding: 11px 14px;">La reflexión del podcast y la explicación del póster, en tres pasos:
+            <strong>What?</strong> (qué hiciste) · <strong>So what?</strong> (qué significa) · <strong>Now what?</strong> (qué cambia a partir de ahí).</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">10 · Designing Your Portfolio</td>
+          <td style="padding: 11px 14px;">Lo de hoy: el mapa del sitio, el espacio en blanco y los cuatro principios de diseño.</td>
+        </tr>
+        <tr>
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">11 · Polished and Professional</td>
+          <td style="padding: 11px 14px;">Un tema que une todo el sitio —el tuyo es tu tensión— y cómo abrir y cerrar cada texto con las palabras más fuertes.</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+          <td style="padding: 11px 14px; font-weight: bold; border-right: 1px solid #cccccc;">12 · Ethics and Universal Design</td>
+          <td style="padding: 11px 14px;">Fotos, permisos, créditos y accesibilidad, con una lista de comprobación para antes de presentar.</td>
+        </tr>
+      </tbody>
+    </table>
 
-      <div class="ps-card">
-        <div class="ps-head">
-          <div class="ps-num">2</div>
-          <div class="ps-head-text">
-            <h3>Research — My Future Community</h3>
-            <span>Investigación — Mi comunidad futura</span>
-          </div>
-        </div>
-        <div class="ps-body">
-          <p>Present your research in English. Include specific data, images, and at least 3 academic sources. Organize in 2–3 clear sections with headings.<br><em>Presenta tu investigación en inglés. Incluye datos específicos, imágenes y al menos 3 fuentes académicas. Organiza en 2–3 secciones con títulos.</em></p>
-          <div class="ps-required">
-            <span class="ps-req-item">Written in English</span>
-            <span class="ps-req-item">2–3 sections</span>
-            <span class="ps-req-item">Images / visuals</span>
-            <span class="ps-req-item">Specific data</span>
-            <span class="ps-req-item">Sources cited</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="ps-card">
-        <div class="ps-head">
-          <div class="ps-num">3</div>
-          <div class="ps-head-text">
-            <h3>Podcast</h3>
-            <span>Podcast</span>
-          </div>
-        </div>
-        <div class="ps-body">
-          <p>Embed your podcast from this semester directly on the site. Add a short description of what it is about and what you learned from making it.<br><em>Incrusta tu podcast del semestre directamente en el sitio. Agrega una descripción breve de qué trata y qué aprendiste al hacerlo.</em></p>
-          <div class="ps-required">
-            <span class="ps-req-item">Embedded audio</span>
-            <span class="ps-req-item">Short description</span>
-            <span class="ps-req-item">Reflection (2–3 sentences)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="ps-card">
-        <div class="ps-head">
-          <div class="ps-num">4</div>
-          <div class="ps-head-text">
-            <h3>Campaign Poster</h3>
-            <span>Póster de campaña</span>
-          </div>
-        </div>
-        <div class="ps-body">
-          <p>Display your campaign poster from the poster workshop. Include the slogan, the program or community it promotes, and a brief explanation of your design choices.<br><em>Muestra tu póster de campaña del workshop. Incluye el slogan, el programa o comunidad que promueve y una breve explicación de tus decisiones de diseño.</em></p>
-          <div class="ps-required">
-            <span class="ps-req-item">Poster image</span>
-            <span class="ps-req-item">Slogan</span>
-            <span class="ps-req-item">Design explanation</span>
-            <span class="ps-req-item">Link or QR</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="ps-card">
-        <div class="ps-head">
-          <div class="ps-num">5</div>
-          <div class="ps-head-text">
-            <h3>Resources</h3>
-            <span>Recursos</span>
-          </div>
-        </div>
-        <div class="ps-body">
-          <p>List your sources and any additional resources related to your topic — programs, organizations, links — that viewers can explore. This is your bibliography made visual.<br><em>Lista tus fuentes y recursos adicionales relacionados con tu tema. Esta es tu bibliografía de forma visual.</em></p>
-          <div class="ps-required">
-            <span class="ps-req-item">5+ sources</span>
-            <span class="ps-req-item">Formatted citations</span>
-            <span class="ps-req-item">Links to programs / orgs</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="callout-info" style="margin-top:16px;">
-      Your site must be <strong>published and shareable</strong> before Apr 20. Go to <strong>Publish</strong> in Google Sites and share the link with your professor. · <em>Tu sitio debe estar publicado y compartido antes del 20 de abril. Ve a Publicar en Google Sites y comparte el enlace con tu profesora.</em>
-    </div>
-  </section>
-
-  <!-- HOW TO BUILD IN GOOGLE SITES -->
-  <section class="section">
-    <div class="section-label">Step by step · Paso a paso</div>
-    <h2 class="section-title">Building Your Google Site</h2>
-    <p class="section-sub">Follow these steps during the workshop and continue on your own. <em>Sigue estos pasos durante el workshop y continúa por tu cuenta.</em></p>
-
-    <div class="steps-grid">
-      <div class="step-row">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <h3>Go to sites.google.com</h3>
-          <div class="step-es">Ve a sites.google.com</div>
-          <p>Sign in with your LSU Google account. Click <strong>+ Blank site</strong> to start a new site. Give it a name — your name and topic work well.</p>
-        </div>
-      </div>
-      <div class="step-row">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <h3>Set up your pages</h3>
-          <div class="step-es">Crea tus páginas</div>
-          <p>In the right panel, click <strong>Pages</strong> and add the 5 sections: Home, Research, Podcast, Poster, Resources. Each becomes its own page in your navigation.</p>
-        </div>
-      </div>
-      <div class="step-row">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <h3>Choose a theme and header</h3>
-          <div class="step-es">Elige un tema y encabezado</div>
-          <p>Click <strong>Themes</strong> to pick a visual style. Add a header image or title to your home page. Keep it professional and connected to your topic.</p>
-          <span class="step-note">Apply the 4 design principles: Contrast, Repetition, Alignment, Proximity · Aplica los 4 principios de diseño</span>
-        </div>
-      </div>
-      <div class="step-row">
-        <div class="step-num">4</div>
-        <div class="step-body">
-          <h3>Add your research content</h3>
-          <div class="step-es">Agrega tu contenido de investigación</div>
-          <p>Use <strong>Insert → Text box</strong> for paragraphs, <strong>Insert → Image</strong> for visuals. Organize with headings. Write in English.</p>
-        </div>
-      </div>
-      <div class="step-row">
-        <div class="step-num">5</div>
-        <div class="step-body">
-          <h3>Embed your podcast</h3>
-          <div class="step-es">Incrusta tu podcast</div>
-          <p>Use <strong>Insert → Embed</strong> and paste your podcast URL, or upload your audio file. Add a text description below.</p>
-        </div>
-      </div>
-      <div class="step-row">
-        <div class="step-num">6</div>
-        <div class="step-body">
-          <h3>Add your campaign poster</h3>
-          <div class="step-es">Agrega tu póster de campaña</div>
-          <p>Insert the poster image from your Canva or Google Slides file. Add your slogan as a heading and include 2–3 sentences explaining your design decisions.</p>
-        </div>
-      </div>
-      <div class="step-row">
-        <div class="step-num">7</div>
-        <div class="step-body">
-          <h3>Add sources and resources</h3>
-          <div class="step-es">Agrega fuentes y recursos</div>
-          <p>List your citations in APA, MLA, or Chicago. Add clickable links to programs and organizations related to your topic.</p>
-        </div>
-      </div>
-      <div class="step-row">
-        <div class="step-num">8</div>
-        <div class="step-body">
-          <h3>Publish and share</h3>
-          <div class="step-es">Publica y comparte</div>
-          <p>Click <strong>Publish</strong> in the top right corner. Set visibility to <strong>Anyone with the link</strong>. Copy the link and send it to your professor before Apr 20.</p>
-          <span class="step-note">Deadline: April 20 — presentations begin · Fecha límite: 20 de abril</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WRITTEN PAPER -->
-  <section class="section">
-    <div class="section-label">Written paper · Trabajo escrito</div>
-    <h2 class="section-title">Trabajo de Investigación Individual</h2>
-    <p class="section-sub">3–5 pages in Spanish — due <strong>May 8</strong> on Moodle. <em>3–5 páginas en español — entrega en Moodle durante la semana de finales.</em></p>
-
-    <div class="callout-gold">
-      This paper is the written version of your website research — in Spanish, with deeper analysis, specific data, and academic sources. You are not doing new work; you are expanding what you already built on your site.<br>
-      <em>Este trabajo es la versión escrita de tu investigación del sitio web — en español, con análisis más profundo, datos específicos y fuentes académicas. No es trabajo nuevo; es expandir lo que ya construiste.</em>
-    </div>
-
-    <!-- Format table -->
-    <div style="margin-top:20px;overflow-x:auto;">
-      <table class="rubric-table">
-        <thead>
-          <tr>
-            <th>Element · Elemento</th>
-            <th>Requirement · Requisito</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Length · Extensión</td><td>3–5 pages, double-spaced (without bibliography) · 3–5 páginas a doble espacio (sin bibliografía)</td></tr>
-          <tr><td>Font · Fuente</td><td>Times New Roman or Arial, 12pt</td></tr>
-          <tr><td>Margins · Márgenes</td><td>1 inch all sides · 1 pulgada en todos los lados</td></tr>
-          <tr><td>Citation · Citación</td><td>APA, MLA, or Chicago — pick one and use it consistently</td></tr>
-          <tr><td>Sources · Fuentes</td><td>Minimum 5 (at least 3 academic) · Mínimo 5 (al menos 3 académicas)</td></tr>
-          <tr><td>Language · Idioma</td><td>Written in Spanish — your own words, not a translation · En tu propio español, no traducido</td></tr>
-          <tr><td>File name · Nombre</td><td>Apellido_Nombre_TrabajoFinal_SPAN2156.pdf</td></tr>
-          <tr><td>Submission · Entrega</td><td>Moodle → Assignments → "Trabajo Final de Investigación Individual"</td></tr>
-        </tbody>
-      </table>
+    <div style="background: #EAF2EF; border-radius: 12px; padding: 18px 22px; margin-bottom: 18px; font-family: Georgia, serif; font-size: 16px; color: #1C1917;">
+      <strong style="font-family: Arial, sans-serif; font-size: 14px; color: #1B5E4A;">📷 Antes de subir una foto</strong><br>
+      Si en la foto aparece otra persona —tu pareja de podcast, alguien de una comunidad, un menor— necesitas su permiso
+      para publicarla. Y toda imagen que no sea tuya lleva crédito en <em>Resources</em>, aunque sea de un banco de fotos gratuito.
     </div>
 
-    <!-- Structure -->
-    <div style="margin-top:22px;">
-      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--purple-dark);letter-spacing:.04em;margin-bottom:14px;">Paper Structure · Estructura del trabajo</h3>
-      <div class="page-sections">
-        <div class="ps-card">
-          <div class="ps-head" style="background:var(--purple);">
-            <div class="ps-num">I</div>
-            <div class="ps-head-text"><h3>Introducción (~¾ página)</h3><span>Introduction</span></div>
-          </div>
-          <div class="ps-body">
-            <p>Connect to your website: <em>"En mi sitio web sobre [tema], presenté..."</em> — State your specific focus — Say what you will expand — Include your thesis or research question.<br><em>Conecta con tu sitio web, establece tu enfoque específico, di qué vas a expandir e incluye tu tesis.</em></p>
-          </div>
-        </div>
-        <div class="ps-card">
-          <div class="ps-head" style="background:var(--purple);">
-            <div class="ps-num">II</div>
-            <div class="ps-head-text"><h3>Desarrollo (2–3 páginas)</h3><span>Body — 2–3 sections</span></div>
-          </div>
-          <div class="ps-body">
-            <p>Divide into 2–3 sections. Use specific evidence — exact numbers, dates, names. Analyze causes, consequences, and connections to social justice. Go beyond description.<br><em>Divide en 2–3 secciones. Usa evidencia específica con números exactos, fechas, nombres. Analiza causas, consecuencias y conexiones con justicia social.</em></p>
-          </div>
-        </div>
-        <div class="ps-card">
-          <div class="ps-head" style="background:var(--purple);">
-            <div class="ps-num">III</div>
-            <div class="ps-head-text"><h3>Conclusión (~¾ página)</h3><span>Conclusion</span></div>
-          </div>
-          <div class="ps-body">
-            <p>Synthesize what you expanded — projections based on your research — implications for social justice — final reflection.<br><em>Sintetiza lo que expandiste, proyecciones basadas en tu investigación, implicaciones para justicia social y reflexión final.</em></p>
-          </div>
-        </div>
-        <div class="ps-card">
-          <div class="ps-head" style="background:var(--purple-dark);">
-            <div class="ps-num" style="background:rgba(255,255,255,.15);color:white;">B</div>
-            <div class="ps-head-text"><h3>Bibliografía (página separada)</h3><span>Separate page · All sources</span></div>
-          </div>
-          <div class="ps-body">
-            <p>All sources in your chosen citation format — APA, MLA, or Chicago. Minimum 5 sources, at least 3 academic.<br><em>Todas las fuentes en el formato que elegiste. Mínimo 5 fuentes, al menos 3 académicas.</em></p>
-          </div>
-        </div>
-      </div>
+    <a href="https://uark.pressbooks.pub/eportolio/chapter/formatting-your-eportfolio/"
+       style="display: inline-block; background: #1B5E4A; color: #ffffff; text-decoration: none; font-size: 15px; font-weight: bold; padding: 11px 20px; border-radius: 10px; margin: 0 6px 6px 0;">
+       📖 Cap. 10 — Designing Your Portfolio</a>
+    <a href="https://uark.pressbooks.pub/eportolio/"
+       style="display: inline-block; background: #1C1917; color: #ffffff; text-decoration: none; font-size: 15px; font-weight: bold; padding: 11px 20px; border-radius: 10px;">
+       📚 Libro completo</a>
+    <p style="margin: 14px 0 0; font-family: Georgia, serif; font-size: 14px; color: #595959;">
+      Meade, L. (2023). <em>Building a Professional Portfolio</em>. University of Arkansas Libraries. CC BY-NC-ND 4.0.</p>
+  </div>
+
+  <!-- ══════════ RECURSOS ══════════ -->
+  <div style="background: #E9F0F7; border-radius: 14px; padding: 26px 30px;">
+    <h3 style="margin: 0 0 6px; font-size: 19px; color: #1C1917;">📚 Recursos</h3>
+    <p style="margin: 0 0 16px; font-family: Georgia, serif; font-size: 16px; color: #3d3d3d;">
+      La ayuda oficial de Google Sites está en español y tiene capturas de pantalla de cada paso.</p>
+
+    <div style="margin-bottom: 18px;">
+      <a href="https://sites.google.com/new?hl=es"
+         style="display: inline-block; background: #1F4B7A; color: #ffffff; text-decoration: none; font-size: 15px; font-weight: bold; padding: 10px 18px; border-radius: 10px; margin: 0 6px 8px 0;">🌐 Abrir Google Sites</a>
+      <a href="https://support.google.com/sites/answer/98216?hl=es"
+         style="display: inline-block; background: #5B2B6B; color: #ffffff; text-decoration: none; font-size: 15px; font-weight: bold; padding: 10px 18px; border-radius: 10px; margin: 0 6px 8px 0;">🧭 Ayuda: páginas y menú</a>
+      <a href="https://support.google.com/sites/answer/6372880?hl=es"
+         style="display: inline-block; background: #1B5E4A; color: #ffffff; text-decoration: none; font-size: 15px; font-weight: bold; padding: 10px 18px; border-radius: 10px; margin: 0 6px 8px 0;">🚀 Ayuda: publicar y compartir</a>
+      <a href="https://support.google.com/sites/?hl=es"
+         style="display: inline-block; background: #1C1917; color: #ffffff; text-decoration: none; font-size: 15px; font-weight: bold; padding: 10px 18px; border-radius: 10px; margin: 0 6px 8px 0;">🛟 Centro de ayuda completo</a>
     </div>
 
-    <!-- Rubric -->
-    <div style="margin-top:22px;">
-      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--purple-dark);letter-spacing:.04em;margin-bottom:14px;">Rúbrica · 100 puntos</h3>
-      <div style="overflow-x:auto;">
-        <table class="rubric-table">
-          <thead>
-            <tr>
-              <th>Criteria · Criterio</th>
-              <th style="text-align:right;">Points · Puntos</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Connection and expansion of your website research</strong><br><span style="font-style:italic;font-size:12px;">Conexión y expansión de la investigación del sitio web</span><br><span style="font-size:12px;color:#4A3F58;">Clearly connects to your site · Expands with specific data and deep analysis · Does not repeat — develops</span></td>
-              <td class="pts">25</td>
-            </tr>
-            <tr>
-              <td><strong>Evidence and sources</strong><br><span style="font-style:italic;font-size:12px;">Evidencia y fuentes</span><br><span style="font-size:12px;color:#4A3F58;">5+ sources (3+ academic) · Specific data with exact numbers · Consistent citation format · Reliable sources</span></td>
-              <td class="pts">25</td>
-            </tr>
-            <tr>
-              <td><strong>Analysis and critical thinking</strong><br><span style="font-style:italic;font-size:12px;">Análisis y pensamiento crítico</span><br><span style="font-size:12px;color:#4A3F58;">Goes beyond description · Explains causes and consequences · Examines power and systems · Connects to social justice</span></td>
-              <td class="pts">25</td>
-            </tr>
-            <tr>
-              <td><strong>Organization and clarity</strong><br><span style="font-style:italic;font-size:12px;">Organización y claridad</span><br><span style="font-size:12px;color:#4A3F58;">Clear logical structure · Well-developed paragraphs (max 10 lines) · Effective transitions · Complete intro and conclusion</span></td>
-              <td class="pts">15</td>
-            </tr>
-            <tr>
-              <td><strong>Format and writing</strong><br><span style="font-style:italic;font-size:12px;">Formato y escritura</span><br><span style="font-size:12px;color:#4A3F58;">Follows technical specs · Correct spelling and grammar · Your own Spanish (not translated) · Clear, brief sentences</span></td>
-              <td class="pts">10</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
+    <p style="margin: 0 0 10px; font-family: Georgia, serif; font-size: 16px; color: #1C1917;">
+      <strong>Atajos que sí vas a usar:</strong>
+      <code style="background: #ffffff; padding: 2px 7px; border-radius: 4px;">Ctrl/Cmd+Z</code> deshacer ·
+      <code style="background: #ffffff; padding: 2px 7px; border-radius: 4px;">Ctrl/Cmd+K</code> poner un enlace ·
+      doble clic en un espacio vacío de la página para abrir el menú de insertar</p>
 
+    <p style="margin: 0; font-family: Georgia, serif; font-size: 14px; color: #595959;">
+      ¿Te atascas fuera de clase? CxC — Studio 151, Coates Hall — acompaña proyectos digitales, y mis horas de oficina
+      están en Hodges 350. Trae el portátil y el enlace.</p>
+  </div>
 
-  <!-- WEB DESIGN TIPS -->
-  <section class="section">
-    <div class="section-label">From the CxC presentation · Del taller de diseño web</div>
-    <h2 class="section-title">Web Design Tips for Your Portfolio</h2>
-    <p class="section-sub">These principles apply to your Google Site — and to any professional portfolio you build in the future. <em>Estos principios aplican a tu Google Site y a cualquier portafolio profesional que construyas en el futuro.</em></p>
-
-    <div class="tips-grid" style="margin-bottom:14px;">
-
-      <div class="tip-card">
-        <span class="tip-icon">🏠</span>
-        <h3>Landing Page · Página de inicio</h3>
-        <div class="tip-es">Primera impresión</div>
-        <ul>
-          <li>Must show a sample of your work immediately — <em>debe mostrar tu trabajo de inmediato</em></li>
-          <li>Include a tagline or statement that describes who you are — <em>incluye una frase que describa quién eres</em></li>
-          <li>Be quick and efficient — visitors should not have to guess — <em>sé eficiente; los visitantes no deben adivinar</em></li>
-          <li>Name + clean navigation visible at all times — <em>nombre + navegación limpia siempre visible</em></li>
-        </ul>
-      </div>
-
-      <div class="tip-card">
-        <span class="tip-icon">🧭</span>
-        <h3>Navigation · Navegación</h3>
-        <div class="tip-es">Cómo se mueve el visitante</div>
-        <ul>
-          <li>Keep navigation on top, consistent across all pages — <em>navegación arriba, consistente en todas las páginas</em></li>
-          <li>Avoid drop-down menus — especially if you have few items — <em>evita menús desplegables con pocos elementos</em></li>
-          <li>Use conventional labels: Home, About — <em>usa etiquetas convencionales: Inicio, Sobre mí</em></li>
-          <li>Decide: do you want visitors to scroll or click? Be consistent — <em>¿scroll o click? Sé consistente</em></li>
-          <li>Always open links in a new tab — <em>siempre abre links en una pestaña nueva</em></li>
-        </ul>
-      </div>
-
-      <div class="tip-card">
-        <span class="tip-icon">📐</span>
-        <h3>Layout & Content · Diseño y contenido</h3>
-        <div class="tip-es">Lo que se ve en pantalla</div>
-        <ul>
-          <li>Less is more — do not overcrowd the screen — <em>menos es más; no sobrecargues la pantalla</em></li>
-          <li>Think of how much content fits per screen if visitors click — <em>piensa en cuánto cabe por pantalla</em></li>
-          <li>Consistency across pages in colors, fonts, spacing — <em>consistencia en colores, fuentes y espaciado</em></li>
-          <li>Images do not speak for themselves — give them titles and brief context — <em>las imágenes necesitan título y contexto breve</em></li>
-          <li>Think about grabbing attention — <em>piensa en captar la atención</em></li>
-        </ul>
-      </div>
-
-      <div class="tip-card">
-        <span class="tip-icon">📱</span>
-        <h3>Mobile Optimization · Versión móvil</h3>
-        <div class="tip-es">La mayoría accede desde el teléfono</div>
-        <ul>
-          <li>Design for mobile first — most people access from their phones — <em>la mayoría usa el teléfono</em></li>
-          <li>Platforms like Google Sites build the mobile version automatically — <em>Google Sites crea la versión móvil automáticamente</em></li>
-          <li>Check by resizing your browser window while designing — <em>verifica reduciendo el navegador mientras diseñas</em></li>
-          <li>Make sure nothing is cut off — <em>asegúrate de que nada quede cortado</em></li>
-          <li>Right-click → Inspect to see how it looks — <em>click derecho → Inspeccionar para ver cómo se ve</em></li>
-        </ul>
-      </div>
-
-      <div class="tip-card">
-        <span class="tip-icon">🖼️</span>
-        <h3>Images & Media · Imágenes y medios</h3>
-        <div class="tip-es">Cómo usar lo visual</div>
-        <ul>
-          <li>Use full resolution — but be aware of storage limits — <em>usa resolución completa, pero cuida el almacenamiento</em></li>
-          <li>Never make images too small to see — <em>nunca hagas imágenes tan pequeñas que no se vean</em></li>
-          <li>Be careful putting text over images — check contrast — <em>cuidado con texto sobre imágenes; verifica el contraste</em></li>
-          <li>Links to PDF or slideshow are better than embedding heavy files — <em>los links a PDF son mejores que incrustar archivos pesados</em></li>
-          <li>Order strategically: best to least strong, not always newest to oldest — <em>ordena estratégicamente, no necesariamente de nuevo a viejo</em></li>
-        </ul>
-      </div>
-
-      <div class="tip-card">
-        <span class="tip-icon">♿</span>
-        <h3>Accessibility · Accesibilidad</h3>
-        <div class="tip-es">Diseño accesible = buen diseño</div>
-        <ul>
-          <li>Accessible design is good design — it is a federal mandate — <em>el diseño accesible es buen diseño — es mandato federal</em></li>
-          <li>Check color contrast on every page — <em>verifica el contraste de color en cada página</em></li>
-          <li>Avoid text that blends into its background — <em>evita texto que se mezcle con el fondo</em></li>
-          <li>Text alignment: left-to-right or justified — avoid centered long text — <em>texto alineado a la izquierda o justificado; evita centrado en párrafos largos</em></li>
-          <li>Most platforms have a built-in accessibility checker — use it — <em>la mayoría de plataformas tienen verificador de accesibilidad — úsalo</em></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <!-- DO / DON'T -->
-    <div class="do-dont-row">
-      <div class="do-box">
-        <strong>Do · Haz esto</strong>
-        <ul>
-          <li>Navigation on top, always visible</li>
-          <li>Open links in a new tab</li>
-          <li>Check contrast on every page</li>
-          <li>One clear statement about who you are</li>
-          <li>Full resolution images with titles</li>
-          <li>Test on mobile while you design</li>
-          <li>Consistent colors and fonts across pages</li>
-        </ul>
-      </div>
-      <div class="dont-box">
-        <strong>Avoid · Evita esto</strong>
-        <ul>
-          <li>Drop-down menus with few items</li>
-          <li>Text over images with low contrast</li>
-          <li>Overcrowded screens</li>
-          <li>Images with no title or context</li>
-          <li>Inconsistent layout per page</li>
-          <li>Tiny images impossible to see</li>
-          <li>Centered long paragraphs</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="callout-info" style="margin-top:14px;">
-      <strong>Free platforms for reference:</strong> Google Sites (recommended for this class) · Wix · Adobe Portfolio (if you have lots of visuals) · Squarespace · ReadyMag<br>
-      <em>Plataformas gratuitas de referencia: Google Sites (recomendado para esta clase) · Wix · Adobe Portfolio · Squarespace · ReadyMag</em>
-    </div>
-  </section>
-
-  <!-- CHECKLIST -->
-  <section class="section">
-    <div class="section-label">Self-check · Autoevaluación</div>
-    <h2 class="section-title">Am I Ready?</h2>
-    <p class="section-sub">Check off everything before your presentation and before submitting. <em>Marca todo antes de tu presentación y antes de entregar.</em></p>
-
-    <div class="checklist">
-      <div class="checklist-header">
-        <h3>Final Checklist · Lista final</h3>
-        <small>Click each item to check it off</small>
-      </div>
-
-      <!-- WEBSITE -->
-      <div style="background:var(--step-bg);border-bottom:1px solid var(--border);padding:8px 22px;">
-        <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--purple-light);font-weight:600;">Google Site</span>
-      </div>
-      <div class="cl-item" onclick="toggleCheck(this)">
-        <div class="cl-box"></div>
-        <div>
-          <div class="cl-en">My site has all 5 sections: Home, Research, Podcast, Poster, Resources</div>
-          <div class="cl-es">Mi sitio tiene las 5 secciones: Inicio, Investigación, Podcast, Póster, Recursos</div>
-        </div>
-      </div>
-      <div class="cl-item" onclick="toggleCheck(this)">
-        <div class="cl-box"></div>
-        <div>
-          <div class="cl-en">Research is written in English with specific data and 2–3 sections</div>
-          <div class="cl-es">La investigación está en inglés con datos específicos y 2–3 secciones</div>
-        </div>
-      </div>
-      <div class="cl-item" onclick="toggleCheck(this)">
-        <div class="cl-box"></div>
-        <div>
-          <div class="cl-en">My podcast is embedded and has a description</div>
-          <div class="cl-es">Mi podcast está incrustado y tiene una descripción</div>
-        </div>
-      </div>
-      <div class="cl-item" onclick="toggleCheck(this)">
-        <div class="cl-box"></div>
-        <div>
-          <div class="cl-en">My campaign poster is displayed with slogan and design explanation</div>
-          <div class="cl-es">Mi póster de campaña está visible con slogan y explicación de diseño</div>
-        </div>
-      </div>
-      <div class="cl-item" onclick="toggleCheck(this)">
-        <div class="cl-box"></div>
-        <div>
-          <div class="cl-en">Resources page has 5+ sources with citations and links</div>
-          <div class="cl-es">La página de recursos tiene 5+ fuentes con citas y links</div>
-        </div>
-      </div>
-      <div class="cl-item" onclick="toggleCheck(this)">
-        <div class="cl-box"></div>
-        <div>
-          <div class="cl-en">Site is published and the link has been shared with the professor</div>
-          <div class="cl-es">El sitio está publicado y el enlace fue enviado a la profesora</div>
-        </div>
-      </div>
-      <div class="cl-item" onclick="toggleCheck(this)">
-        <div class="cl-box"></div>
-        <div>
-          <div class="cl-en">Design is consistent — contrast, repetition, alignment, proximity</div>
-          <div class="cl-es">El diseño es consistente — contraste, repetición, alineación, proximidad</div>
-        </div>
-      </div>
-
-      <!-- WRITTEN PAPER -->
-      <div style="background:var(--step-bg);border-bottom:1px solid var(--border);border-top:1px solid var(--border);padding:8px 22px;">
-        <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--purple-light);font-weight:600;">Trabajo Escrito</span>
-      </div>
-      <div class="cl-item" onclick="toggleCheck(this)">
-        <div class="cl-box"></div>
-        <div>
-          <div class="cl-en">Paper is written in Spanish — my own words, not a translation</div>
-          <div class="cl-es">El trabajo está en español — mis propias palabras, no una traducción</div>
-        </div>
-      </div>
-      <div class="cl-item" onclick="toggleCheck(this)">
-        <div class="cl-box"></div>
-        <div>
-          <div class="cl-en">3–5 pages, double spaced, Times New Roman or Arial 12pt, 1-inch margins</div>
-          <div class="cl-es">3–5 páginas, doble espacio, Times New Roman o Arial 12pt, márgenes de 1 pulgada</div>
-        </div>
-      </div>
-      <div class="cl-item" onclick="toggleCheck(this)">
-        <div class="cl-box"></div>
-        <div>
-          <div class="cl-en">Introduction connects explicitly to my website research</div>
-          <div class="cl-es">La introducción conecta explícitamente con mi investigación del sitio web</div>
-        </div>
-      </div>
-      <div class="cl-item" onclick="toggleCheck(this)">
-        <div class="cl-box"></div>
-        <div>
-          <div class="cl-en">Body has 2–3 sections with specific data, exact numbers, and analysis</div>
-          <div class="cl-es">El desarrollo tiene 2–3 secciones con datos específicos, números exactos y análisis</div>
-        </div>
-      </div>
-      <div class="cl-item" onclick="toggleCheck(this)">
-        <div class="cl-box"></div>
-        <div>
-          <div class="cl-en">5+ sources cited (at least 3 academic) in consistent APA/MLA/Chicago format</div>
-          <div class="cl-es">5+ fuentes citadas (al menos 3 académicas) en formato APA/MLA/Chicago consistente</div>
-        </div>
-      </div>
-      <div class="cl-item" onclick="toggleCheck(this)">
-        <div class="cl-box"></div>
-        <div>
-          <div class="cl-en">File is saved as: Apellido_Nombre_TrabajoFinal_SPAN2156.pdf</div>
-          <div class="cl-es">El archivo se llama: Apellido_Nombre_TrabajoFinal_SPAN2156.pdf</div>
-        </div>
-      </div>
-      <div class="cl-item" onclick="toggleCheck(this)">
-        <div class="cl-box"></div>
-        <div>
-          <div class="cl-en">Submitted on Moodle by May 8</div>
-          <div class="cl-es">Entregado en Moodle antes del 8 de mayo</div>
-        </div>
-      </div>
-
-      <div class="cl-progress">
-        <div class="cl-bar-wrap"><div class="cl-bar" id="progressBar"></div></div>
-        <span class="cl-pct" id="progressLabel">0 / 14</span>
-      </div>
-    </div>
-  </section>
-
-</div><!-- /page-wrap -->
-
-<footer>
-  <div>SPAN 2156 · <span>Portafolio Electrónico Individual · Spring 2026</span></div>
-  <div>Dra. Naranjo · Department of World Languages, Literatures &amp; Cultures · LSU</div>
-</footer>
-
-<script>
-  function toggleCheck(item) {
-    item.classList.toggle('checked');
-    updateProgress();
-  }
-  function updateProgress() {
-    var all = document.querySelectorAll('.cl-item');
-    var checked = document.querySelectorAll('.cl-item.checked');
-    var pct = Math.round((checked.length / all.length) * 100);
-    document.getElementById('progressBar').style.width = pct + '%';
-    document.getElementById('progressLabel').textContent = checked.length + ' / ' + all.length;
-  }
-</script>
-
-</body>
-</html>
+</div>
